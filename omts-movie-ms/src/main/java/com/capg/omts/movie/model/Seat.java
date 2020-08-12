@@ -1,7 +1,7 @@
 package com.capg.omts.movie.model;
 
 public class Seat {
-	
+
 	
 	private int seatId;
 	private Enum seatStatus;

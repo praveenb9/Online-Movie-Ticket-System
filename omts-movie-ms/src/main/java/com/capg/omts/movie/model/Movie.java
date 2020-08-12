@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.ElementCollection;
 
 public class Movie {
-
-	
 	private int movieId;
 	private String movieName;
 	private String movieGenre;
@@ -24,7 +22,7 @@ public class Movie {
 	public int getMovieId() {
 		return movieId;
 	}
-
+	
 	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}

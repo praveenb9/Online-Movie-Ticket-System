@@ -9,7 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Show {
 
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private int showId;
 	@DateTimeFormat(pattern = "yyyy/MM/ddThh:mm:ss")
 	private LocalDateTime ShowStartTime;
