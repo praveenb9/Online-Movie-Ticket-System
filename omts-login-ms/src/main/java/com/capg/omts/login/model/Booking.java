@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 
 public class Booking {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int bookingId;
 	private int movieId;
 	private int showId;
@@ -18,12 +17,28 @@ public class Booking {
 	private int transactionalId;
 	private double totalCost;
 	@ElementCollection
-	private List<Seat> seatList;
+	private List<Integer> seatList;
 	private Ticket ticket;
 	
 	public Booking() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Booking(int bookingId, int movieId, int showId, Show showRef, LocalDate bookingDate, int transactionalId,
+			double totalCost, List<Integer> seatList, Ticket ticket) {
+		super();
+		this.bookingId = bookingId;
+		this.movieId = movieId;
+		this.showId = showId;
+		this.showRef = showRef;
+		this.bookingDate = bookingDate;
+		this.transactionalId = transactionalId;
+		this.totalCost = totalCost;
+		this.seatList = seatList;
+		this.ticket = ticket;
+	}
+
 
 	public int getMovieId() {
 		return movieId;
@@ -73,11 +88,11 @@ public class Booking {
 		this.totalCost = totalCost;
 	}
 
-	public List<Seat> getSeatList() {
+	public List<Integer> getSeatList() {
 		return seatList;
 	}
 
-	public void setSeatList(List<Seat> seatList) {
+	public void setSeatList(List<Integer> seatList) {
 		this.seatList = seatList;
 	}
 
@@ -87,6 +102,14 @@ public class Booking {
 
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Booking [bookingId=" + bookingId + ", movieId=" + movieId + ", showId=" + showId + ", showRef="
+				+ showRef + ", bookingDate=" + bookingDate + ", transactionalId=" + transactionalId + ", totalCost="
+				+ totalCost + ", seatList=" + seatList + ", ticket=" + ticket + "]";
 	}
 	
 	
