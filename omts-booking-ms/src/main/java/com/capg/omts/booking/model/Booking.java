@@ -14,6 +14,8 @@ public class Booking {
 	private int movieId;
 	private int showId;
 	private Show showRef;
+	
+	
 	private LocalDate bookingDate;
 	private int transactionalId;
 	private double totalCost;
