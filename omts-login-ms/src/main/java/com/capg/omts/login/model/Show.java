@@ -9,7 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Show {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int showId;
 	@DateTimeFormat(pattern = "yyyy/MM/ddThh:mm:ss")
 	private LocalDateTime ShowStartTime;
@@ -23,6 +22,31 @@ public class Show {
 	public Show() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Show(int showId, LocalDateTime showStartTime, LocalDateTime showEndTime, String showName, Movie movieName,
+			int screenId, int theaterId) {
+		super();
+		this.showId = showId;
+		ShowStartTime = showStartTime;
+		ShowEndTime = showEndTime;
+		this.showName = showName;
+		this.movieName = movieName;
+		this.screenId = screenId;
+		this.theaterId = theaterId;
+	}
+
+	
+
+	public int getShowId() {
+		return showId;
+	}
+
+
+	public void setShowId(int showId) {
+		this.showId = showId;
+	}
+
 
 	public LocalDateTime getShowStartTime() {
 		return ShowStartTime;
@@ -70,6 +94,14 @@ public class Show {
 
 	public void setTheaterId(int theaterId) {
 		this.theaterId = theaterId;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Show [showId=" + showId + ", ShowStartTime=" + ShowStartTime + ", ShowEndTime=" + ShowEndTime
+				+ ", showName=" + showName + ", movieName=" + movieName + ", screenId=" + screenId + ", theaterId="
+				+ theaterId + "]";
 	}
 	
 	

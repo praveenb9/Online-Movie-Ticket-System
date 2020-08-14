@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 
 public class Ticket {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ticketId;
 	private int noOfSeats;
 	@ElementCollection
@@ -20,6 +19,30 @@ public class Ticket {
 	public Ticket() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Ticket(int ticketId, int noOfSeats, List<String> seatName, Booking bookingRef, boolean ticketStatus,
+			String screenName) {
+		super();
+		this.ticketId = ticketId;
+		this.noOfSeats = noOfSeats;
+		this.seatName = seatName;
+		this.bookingRef = bookingRef;
+		this.ticketStatus = ticketStatus;
+		this.screenName = screenName;
+	}
+
+	
+
+	public int getTicketId() {
+		return ticketId;
+	}
+
+
+	public void setTicketId(int ticketId) {
+		this.ticketId = ticketId;
+	}
+
 
 	public int getNoOfSeats() {
 		return noOfSeats;
@@ -59,6 +82,13 @@ public class Ticket {
 
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Ticket [ticketId=" + ticketId + ", noOfSeats=" + noOfSeats + ", seatName=" + seatName + ", bookingRef="
+				+ bookingRef + ", ticketStatus=" + ticketStatus + ", screenName=" + screenName + "]";
 	}
 	
 	

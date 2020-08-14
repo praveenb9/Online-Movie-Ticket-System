@@ -4,12 +4,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Movie {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int movieId;
 	private String movieName;
 	private String movieGenre;
@@ -17,11 +16,37 @@ public class Movie {
 	private int movieLength;
 	@ElementCollection
 	private List<String> languages;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate movieReleaseDate;
 	
 	public Movie() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Movie(int movieId, String movieName, String movieGenre, String movieDirector, int movieLength,
+			List<String> languages, LocalDate movieReleaseDate) {
+		super();
+		this.movieId = movieId;
+		this.movieName = movieName;
+		this.movieGenre = movieGenre;
+		this.movieDirector = movieDirector;
+		this.movieLength = movieLength;
+		this.languages = languages;
+		this.movieReleaseDate = movieReleaseDate;
+	}
+
+	
+
+	public int getMovieId() {
+		return movieId;
+	}
+
+
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
+
 
 	public String getMovieName() {
 		return movieName;
@@ -70,6 +95,15 @@ public class Movie {
 	public void setMovieReleaseDate(LocalDate movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Movie [movieId=" + movieId + ", movieName=" + movieName + ", movieGenre=" + movieGenre
+				+ ", movieDirector=" + movieDirector + ", movieLength=" + movieLength + ", languages=" + languages
+				+ ", movieReleaseDate=" + movieReleaseDate + "]";
+	}
+	
 	
 	
 }
