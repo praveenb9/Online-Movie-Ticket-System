@@ -2,11 +2,15 @@ package com.capg.omts.login.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Inheritance;
-
-@Inheritance
+import javax.persistence.InheritanceType;
+@Entity
+@DiscriminatorValue("admin")
 public class Admin extends User {
 	
 	private int adminId;

@@ -3,10 +3,14 @@ package com.capg.omts.login.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-@Inheritance
+@Entity
+@DiscriminatorValue("customer")
 public class Customer extends User{
 	private int customerId;
 	private String customerName;
