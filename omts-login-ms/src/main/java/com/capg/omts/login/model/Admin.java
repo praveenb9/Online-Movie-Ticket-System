@@ -12,6 +12,7 @@ public class Admin extends User {
 	private int adminId;
 	private String adminName;
 	private String adminPassword;
+
 	private LocalDate dateOfBirth;
 	private String adminContact;
 	

@@ -4,18 +4,28 @@ public class UserCredentials {
 
 	private int userId;
 	private String password;
+	private String userType;
 	public UserCredentials() {
 		// TODO Auto-generated constructor stub
 	}
+	public UserCredentials(int userId, String password,String userType) {
+		super();
+		this.userId = userId;
+		this.password = password;
+		this.userType=userType;
+	}
+	
 	public UserCredentials(int userId, String password) {
 		super();
 		this.userId = userId;
 		this.password = password;
 	}
-	public int getuserId() {
+	
+	
+	public int getUserId() {
 		return userId;
 	}
-	public void setuserId(int userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getPassword() {
@@ -23,6 +33,12 @@ public class UserCredentials {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	@Override
 	public String toString() {

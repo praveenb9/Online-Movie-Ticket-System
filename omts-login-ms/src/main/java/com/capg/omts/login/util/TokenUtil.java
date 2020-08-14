@@ -10,7 +10,7 @@ public class TokenUtil {
 
 	public String generateToken(UserCredentials credentials)
 	{
-		StringBuilder userIdSB=new StringBuilder(credentials.getuserId());
+		StringBuilder userIdSB=new StringBuilder(credentials.getUserId());
 		StringBuilder passwordSB=new StringBuilder(credentials.getPassword());
 		String encoded=userIdSB.reverse()+","+passwordSB.reverse();
 		return encoded;

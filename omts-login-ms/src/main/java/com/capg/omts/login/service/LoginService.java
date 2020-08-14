@@ -13,10 +13,10 @@ import com.capg.omts.login.util.TokenUtil;
 public class LoginService implements ILoginService{
 
 	@Autowired
-	RestTemplate restTemplate;
+	private RestTemplate restTemplate;
 	
 	@Autowired
-	TokenUtil tokenUtil;
+	private TokenUtil tokenUtil;
 
 	@Override
 	public User getUser() {
@@ -37,17 +37,17 @@ public class LoginService implements ILoginService{
 //	}
 	
 
-	public User authenticate(UserCredentials credentials)
+	public UserCredentials authenticate(UserCredentials credentials)
 	{
-		User user=restTemplate.postForObject("http://localhost:8300/users/authenticate", credentials, User.class);
-		return user;
+		return  restTemplate.postForObject("http://localhost:8300/users/authenticate", credentials, UserCredentials.class);
+		
 	}
 	
-	public AuthenticationResponse getToken(User user)
+	public AuthenticationResponse getToken(UserCredentials credentials)
 	{
-		String generatedToken =tokenUtil.generateToken(new UserCredentials(user.getUserId(),user.getPassword()));
-		AuthenticationResponse auth=new AuthenticationResponse();
-		auth.setToken(generatedToken);
-		return auth;
+		String generatedToken =tokenUtil.generateToken(credentials);
+		AuthenticationResponse authentication=new AuthenticationResponse();
+		authentication.setToken(generatedToken);
+		return authentication;
 	}
 }
