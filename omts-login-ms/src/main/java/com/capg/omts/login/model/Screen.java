@@ -12,6 +12,7 @@ public class Screen {
 	private int theaterId;
 	private String screenName;
 	private List<Show> showList;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate movieEndDate;
 	private int rows;
 	private int columns;

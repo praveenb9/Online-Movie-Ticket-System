@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Movie {
 
@@ -16,6 +16,7 @@ public class Movie {
 	private int movieLength;
 	@ElementCollection
 	private List<String> languages;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate movieReleaseDate;
 	
 	public Movie() {

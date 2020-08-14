@@ -7,12 +7,15 @@ import javax.persistence.ElementCollection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Booking {
 
 	private int bookingId;
 	private int movieId;
 	private int showId;
 	private Show showRef;
+	@DateTimeFormat(pattern = "yyyy/MM/ddThh:mm:ss")
 	private LocalDate bookingDate;
 	private int transactionalId;
 	private double totalCost;

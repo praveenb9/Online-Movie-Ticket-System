@@ -1,4 +1,4 @@
-package com.capg.omts.login.model;
+package com.capg.omts.user.model;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,11 +6,13 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@DiscriminatorValue("customer")
+@Entity
+@DiscriminatorValue("customer")
 public class Customer extends User{
 	private int customerId;
 	private String customerName;
