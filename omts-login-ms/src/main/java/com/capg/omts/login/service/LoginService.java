@@ -39,7 +39,7 @@ public class LoginService implements ILoginService{
 
 	public UserCredentials authenticate(UserCredentials credentials)
 	{
-		return  restTemplate.postForObject("http://localhost:8300/users/authenticate", credentials, UserCredentials.class);
+		return  restTemplate.postForObject("http://localhost:8100/users/authenticate", credentials, UserCredentials.class);
 		
 	}
 	

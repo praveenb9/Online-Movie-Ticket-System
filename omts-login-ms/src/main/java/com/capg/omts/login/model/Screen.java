@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Screen {
 
 	private int screenId;
