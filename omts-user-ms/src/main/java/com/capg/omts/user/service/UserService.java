@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.capg.omts.user.model.Admin;
 import com.capg.omts.user.model.Customer;
 import com.capg.omts.user.model.User;
+import com.capg.omts.user.model.UserCredentials;
 import com.capg.omts.user.repo.UserRepo;
 
 @Service
@@ -23,9 +24,18 @@ admin.setPassword(admin.getAdminPassword());
 	}
 
 	@Override
-	public User getUserByUserIdAndPassword(int userId, String password) {
+	public UserCredentials getUserByUserIdAndPassword(int userId, String password) {
 		// TODO Auto-generated method stub
-		return userRepo.findByUserIdAndPassword(userId, password);
+		User user= userRepo.findByUserIdAndPassword(userId, password);
+		String id=String.valueOf(user.getUserId());
+		if(id.length()==4 && id.charAt(0)=='1')
+		{
+			return new UserCredentials(user.getUserId(), user.getPassword(), "admin");
+		}
+		else
+		{
+			return new UserCredentials(user.getUserId(),user.getPassword(), "customer");
+		}
 	}
 
 	@Override

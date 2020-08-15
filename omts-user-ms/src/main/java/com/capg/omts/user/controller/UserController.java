@@ -40,9 +40,11 @@ customer.setCustomerId(random.nextInt(1000000));
 	}
 
 	@PostMapping("/authenticate")
-	public User getUserInfo(@RequestBody UserCredentials credentials)
+	public UserCredentials getUserInfo(@RequestBody UserCredentials credentials)
 	{
+		UserCredentials cred= userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
+		System.out.println(cred);
 		return userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
-		
+
 	}
 }
