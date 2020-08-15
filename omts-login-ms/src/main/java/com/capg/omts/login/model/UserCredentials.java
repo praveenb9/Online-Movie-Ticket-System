@@ -42,7 +42,7 @@ public class UserCredentials {
 	}
 	@Override
 	public String toString() {
-		return "UserCredentials [userId=" + userId + ", password=" + password + "]";
+		return "UserCredentials [userId=" + userId + ", password=" + password + ", userType=" + userType + "]";
 	}
 	
 	

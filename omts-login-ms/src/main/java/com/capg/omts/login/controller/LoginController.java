@@ -20,6 +20,7 @@ public class LoginController {
 	public AuthenticationResponse getUser(@RequestBody UserCredentials credentials)
 	{
 		UserCredentials userCredentials= loginService.authenticate(credentials);
+		System.out.println(userCredentials);
 		return loginService.getToken(userCredentials);
 	}
 }

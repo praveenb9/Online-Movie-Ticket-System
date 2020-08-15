@@ -48,6 +48,9 @@ public class LoginService implements ILoginService{
 		String generatedToken =tokenUtil.generateToken(credentials);
 		AuthenticationResponse authentication=new AuthenticationResponse();
 		authentication.setToken(generatedToken);
+		
+//		UserCredentials cred=tokenUtil.decode(generatedToken);
+//		System.out.println(cred);
 		return authentication;
 	}
 }
