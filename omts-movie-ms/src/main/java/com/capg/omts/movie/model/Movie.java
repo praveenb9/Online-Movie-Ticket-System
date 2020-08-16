@@ -1,11 +1,13 @@
 package com.capg.omts.movie.model;
-
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Movie {
+	@Id
 	private int movieId;
 	private String movieName;
 	private String movieGenre;
@@ -16,7 +18,7 @@ public class Movie {
 	private LocalDate movieReleaseDate;
 	
 	public Movie() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public int getMovieId() {
