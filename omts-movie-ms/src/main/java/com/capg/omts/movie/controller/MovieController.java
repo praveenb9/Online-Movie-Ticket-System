@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class MovieController {
 
 	@Autowired
 	MovieServiceImpl service;
-	@GetMapping("/add")
+	@PostMapping("/add")
 	public Movie addMovie(@RequestBody Movie movie) {
 		return service.addMovie(movie);
 		
@@ -34,13 +35,13 @@ public class MovieController {
 	service.deleteMovieById(movieId);
 	return true;
 	}
-	@GetMapping("/movie/name/{movieName}")
+	@GetMapping("/name/{movieName}")
 	public Movie getByMovieName(@PathVariable String movieName) {
 		return service.getByMovieName(movieName);
 	}
 
 
-	@GetMapping("movie/id/{id}")
+	@GetMapping("get/id/{id}")
 	public Movie getMovieById(@PathVariable("id") int movieId) {
 	
 		return service.getMovieById(movieId);
