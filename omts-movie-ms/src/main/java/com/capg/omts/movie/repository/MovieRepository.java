@@ -9,7 +9,7 @@ import com.capg.omts.movie.model.Movie;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Integer>{
 	
-	public Movie getByMovieName(String movieName);
+	 public Movie getByMovieName(String movieName);
 	
 	
 }

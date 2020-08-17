@@ -37,7 +37,7 @@ public class MovieController {
 	}
 	@GetMapping("/name/{movieName}")
 	public Movie getByMovieName(@PathVariable String movieName) {
-		return service.getByMovieName(movieName);
+	return service.getByMovieName(movieName);
 	}
 
 
