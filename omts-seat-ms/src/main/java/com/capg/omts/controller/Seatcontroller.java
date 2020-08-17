@@ -27,12 +27,7 @@ public class Seatcontroller {
 	@Autowired
 	Seatserviceimp seatService;
 	
-
-
-
-	
-	
-	@PostMapping("/add")
+@PostMapping("/add")
 	public ResponseEntity<Seat> addSeat( @RequestBody SeatReader seatReader) {
 		Seat seat=seatService.addSeat(seatReader);
 		return new ResponseEntity<Seat>(seat, HttpStatus.CREATED);	
@@ -40,8 +35,17 @@ public class Seatcontroller {
 
 	@PutMapping("/book")
 	public ResponseEntity<List<Seat>> bookSeat(@RequestBody List<Integer> seatIds){
+
 		return new ResponseEntity<List<Seat>>(seatService.bookSeats(seatIds), HttpStatus.OK);
 	}
+	@GetMapping("/available")
+	public ResponseEntity<List<Seat>> AvailableSeats(){
+		List<Seat> seats = seatService.showAvailableSeats();
+		return new ResponseEntity<List<Seat>>(seats, HttpStatus.OK);
+	}
+
+
+	
 	
 	
 
