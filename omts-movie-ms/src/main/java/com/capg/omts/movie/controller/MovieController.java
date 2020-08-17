@@ -47,7 +47,15 @@ public class MovieController {
 		return service.getMovieById(movieId);
 	}
 
-
-	
+//public List<Movie> findMovies(){
+//	List<Movie> movieList=service.findAllMovies();
+//	return  List<Movie>(movieList);
+//	
+//}
+	@GetMapping("/all")
+	public List<Movie> findMovies(){
+		return service.findAllMovies();
 	}
+	}
+	
 	

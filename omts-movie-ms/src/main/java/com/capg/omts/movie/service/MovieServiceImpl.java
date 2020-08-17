@@ -18,21 +18,21 @@ MovieRepository MovieRepo;
 	}
 
 	@Override
-	public Movie updateMovie(Movie movie) {
+	public Movie updateMovie(Movie movie)  {
 		Integer movieId = movie.getMovieId();
 		if( MovieRepo.existsById(movieId))
 		{ 
-			Movie updateMovie=MovieRepo.getOne(movieId);		
+//     		Movie updateMovie=MovieRepo.getOne(movieId);		
 		
-			updateMovie.setMovieName(movie.getMovieName());
-			updateMovie.setMovieDirector(movie.getMovieDirector());
-			updateMovie.setMovieGenre(movie.getMovieGenre());
-			updateMovie.setLanguages(movie.getLanguages());
-			updateMovie.setMovieLength(movie.getMovieLength());
-			updateMovie.setMovieReleaseDate(movie.getMovieReleaseDate());
-			MovieRepo.save(updateMovie);
+//			updateMovie.setMovieName(movie.getMovieName());
+//			updateMovie.setMovieDirector(movie.getMovieDirector());
+//			updateMovie.setMovieGenre(movie.getMovieGenre());
+//			updateMovie.setLanguages(movie.getLanguages());
+//			updateMovie.setMovieLength(movie.getMovieLength());
+//			updateMovie.setMovieReleaseDate(movie.getMovieReleaseDate());
+			return MovieRepo.save(movie) ;
 		}
-		return movie;
+		throw new RuntimeException ("MovieNotFound");
 	}
 	@Override
 	public Boolean deleteMovieById(int movieId) {
