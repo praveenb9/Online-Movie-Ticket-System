@@ -24,19 +24,6 @@ public class LoginService implements ILoginService{
 		return null;
 	}
 	
-//	@Override
-//	public Customer getCustomer(User user) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public Admin getAdmin(User user) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-	
-
 	public UserCredentials authenticate(UserCredentials credentials)
 	{
 		return  restTemplate.postForObject("http://localhost:8100/users/authenticate", credentials, UserCredentials.class);

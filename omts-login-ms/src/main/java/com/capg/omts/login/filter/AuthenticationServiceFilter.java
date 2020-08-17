@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.capg.omts.login.model.User;
 import com.capg.omts.login.model.UserCredentials;
 import com.capg.omts.login.service.ILoginService;
 import com.capg.omts.login.util.TokenUtil;
@@ -36,7 +35,7 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 		// TODO Auto-generated method stub
 		RequestContext context=RequestContext.getCurrentContext();
 		HttpServletRequest request=context.getRequest();
-		String requestUri=request.getRequestURI();
+		//String requestUri=request.getRequestURI();
 		String token =request.getHeader("Authorization");
 		if(token != null)
 		{
