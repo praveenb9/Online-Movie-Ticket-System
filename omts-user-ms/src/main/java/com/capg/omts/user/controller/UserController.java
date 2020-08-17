@@ -4,11 +4,14 @@ package com.capg.omts.user.controller;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capg.omts.user.exception.InvalidUserException;
 import com.capg.omts.user.model.Admin;
 import com.capg.omts.user.model.Customer;
 import com.capg.omts.user.model.User;
@@ -22,7 +25,8 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
-	Random random = new Random();
+	@Autowired
+	Random random;
 
 	@PostMapping("/adminRegister")
 	public Admin registerAsAdmin(@RequestBody Admin admin)
@@ -40,10 +44,11 @@ customer.setCustomerId(random.nextInt(1000000));
 	}
 
 	@PostMapping("/authenticate")
-	public UserCredentials getUserInfo(@RequestBody UserCredentials credentials)
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	public UserCredentials getUserInfo(@RequestBody UserCredentials credentials) throws InvalidUserException
 	{
-		UserCredentials cred= userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
-		System.out.println(cred);
+//		UserCredentials cred= userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
+//		System.out.println(cred);
 		return userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
 
 	}
