@@ -18,9 +18,11 @@ public class Seatserviceimp implements Seatservice{
 	seatStatus seatStatus ;
 	
 	@Override
-	public List<Seat> getAvailableSeats() {
+	public List<Seat> showAvailableSeats() {
 		// TODO Auto-generated method stub
-		return null;
+
+			return seatRepo.showAvailableSeats(seatStatus.AVAILABLE);
+		
 	}
 	@Override
 	public List<Seat> bookSeats(List<Integer> seatIds) {
