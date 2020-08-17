@@ -44,10 +44,7 @@ public class Seatcontroller {
 		return new ResponseEntity<List<Seat>>(seats, HttpStatus.OK);
 	}
 
-	@PutMapping("/block")
-	public ResponseEntity<List<Seat>> blockSeat(@RequestBody List<Integer> seatIds){
-		return new ResponseEntity<List<Seat>>(seatService.blockSeats(seatIds), HttpStatus.OK);
-	}
+
 	
 	
 	
