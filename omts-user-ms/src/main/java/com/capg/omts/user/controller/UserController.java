@@ -44,11 +44,9 @@ customer.setCustomerId(random.nextInt(1000000));
 	}
 
 	@PostMapping("/authenticate")
-	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	//@ResponseStatus(code = HttpStatus.NOT_FOUND)
 	public UserCredentials getUserInfo(@RequestBody UserCredentials credentials) throws InvalidUserException
 	{
-//		UserCredentials cred= userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
-//		System.out.println(cred);
 		return userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
 
 	}

@@ -24,12 +24,14 @@ public class AdminController {
 	@PostMapping("/addTheater")
 	public Theater addTheater(@RequestBody Theater theater)
 	{
+		//System.out.println("/n"+"helloooooo");
 		return adminService.addTheater(theater);
 	}
 	
-	@DeleteMapping("/deleteTheater/id/{id}")
+	@DeleteMapping("/deleteTheater/theaterId/{theaterId}")
 	public boolean deleteTheater(@PathVariable int theaterId)
 	{
+		//System.out.println("hellooooooo" + theaterId);
 		return adminService.deleteTheater(theaterId);
 	}
 	
@@ -39,7 +41,7 @@ public class AdminController {
 		return adminService.addMovie(movie);
 	}
 	
-	@DeleteMapping("/deleteMovie/id/{id}")
+	@DeleteMapping("/deleteMovie/movieId/{movieId}")
 	public boolean deleteMovie(@PathVariable int movieId)
 	{
 		return adminService.deleteMovie(movieId);
@@ -51,7 +53,7 @@ public class AdminController {
 		return adminService.addShow(show);
 	}
 	
-	@DeleteMapping("/deleteShow/id/{id}")
+	@DeleteMapping("/deleteShow/showId/{showId}")
 	public boolean deleteShow(@PathVariable int showId)
 	{
 		return adminService.deleteShow(showId);
@@ -63,7 +65,7 @@ public class AdminController {
 		return adminService.addScreen(screen);
 	}
 	
-	@DeleteMapping("/deleteScreen/id/{id}")
+	@DeleteMapping("/deleteScreen/screenId/{screenId}")
 	public boolean deleteScreen(@PathVariable int screenId)
 	{
 		return adminService.deleteScreen(screenId);
