@@ -36,8 +36,14 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 		// TODO Auto-generated method stub
 		RequestContext context=RequestContext.getCurrentContext();
 		HttpServletRequest request=context.getRequest();
-		//String requestUri=request.getRequestURI();
+		String uri=request.getRequestURI();
+		if(uri.contains("/public/"))
+		{
+			return null;
+		}
 		String token =request.getHeader("Authorization");
+		
+		
 		if(token != null)
 		{
 			UserCredentials credentials= tokenUtil.decode(token);
@@ -46,20 +52,17 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 			try {
 				userCredentials = loginService.authenticate(credentials);
 			
-			if(userCredentials.getUserType().equals("admin"))
+			if(uri.contains("/admin/") && userCredentials.getUserType().equals("admin"))
 			{
 				return null;
 			}
 			
-			if(userCredentials.getUserType().equals("customer"))
+			if(uri.contains("/customer/") && userCredentials.getUserType().equals("customer"))
 			{
 				return null;
 			}
 		
-			if(userCredentials.getUserType().equals("user"))
-			{
-				return null;
-			}
+			
 
 			context.setSendZuulResponse(false);
 			context.setResponseStatusCode(400);

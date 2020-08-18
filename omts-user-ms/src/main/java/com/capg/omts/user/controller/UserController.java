@@ -28,7 +28,7 @@ public class UserController {
 	@Autowired
 	Random random;
 
-	@PostMapping("/adminRegister")
+	@PostMapping("/public/adminRegister")
 	public Admin registerAsAdmin(@RequestBody Admin admin)
 	{
 		 admin.setAdminId( random.nextInt(1000)+1000);
@@ -36,14 +36,14 @@ public class UserController {
 		return userService.addAdmin(admin);
 	}
 	
-	@PostMapping("/customerRegister")
+	@PostMapping("/public/customerRegister")
 	public Customer registerAsCustomer(@RequestBody Customer customer)
 	{
 customer.setCustomerId(random.nextInt(1000000));
 		return userService.addCustomer(customer);
 	}
 
-	@PostMapping("/authenticate")
+	@PostMapping("/public/authenticate")
 	//@ResponseStatus(code = HttpStatus.NOT_FOUND)
 	public UserCredentials getUserInfo(@RequestBody UserCredentials credentials) throws InvalidUserException
 	{
