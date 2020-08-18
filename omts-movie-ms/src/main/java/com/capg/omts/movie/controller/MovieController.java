@@ -30,8 +30,8 @@ public class MovieController {
 	public Movie updateMovie(@RequestBody Movie movie ) {
 	return service.updateMovie(movie);
 }
-	@DeleteMapping("/movie/id/{id}")
-	public Boolean deleteMovieById(int movieId) {
+	@DeleteMapping("/delete/id/{id}")
+	public Boolean deleteMovieById(@PathVariable("id") int movieId) {
 	service.deleteMovieById(movieId);
 	return true;
 	}
