@@ -20,17 +20,14 @@ public class LoginController {
 	@Autowired
 	private ILoginService loginService;
 	
-	@PostMapping("/user/authentication")
-	public AuthenticationResponse getUser(@RequestBody UserCredentials credentials) throws InvalidUserException
+	@PostMapping("/authenticate")
+	public AuthenticationResponse getUser(@RequestBody UserCredentials credentials) throws InvalidUserException  
 	{
-		try {
+		System.out.println("login controller");
 		UserCredentials userCredentials= loginService.authenticate(credentials);
 		System.out.println(userCredentials);
 		return loginService.getToken(userCredentials);
-		}
-		catch (Exception e) {
-
-			throw new InvalidUserException("Invalid UserID/Password");
-		}
+		
+		
 	}
 }

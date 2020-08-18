@@ -8,6 +8,7 @@ import com.capg.omts.login.model.AuthenticationResponse;
 import com.capg.omts.login.model.User;
 import com.capg.omts.login.model.UserCredentials;
 import com.capg.omts.login.util.TokenUtil;
+import com.capg.omts.login.exception.InvalidUserException;
 
 @Service
 public class LoginService implements ILoginService{
@@ -24,14 +25,22 @@ public class LoginService implements ILoginService{
 		return null;
 	}
 	
-	public UserCredentials authenticate(UserCredentials credentials)
+	public UserCredentials authenticate(UserCredentials credentials) throws InvalidUserException
 	{
-		return  restTemplate.postForObject("http://localhost:8100/users/authenticate", credentials, UserCredentials.class);
-		
+		System.out.println("login service");
+		try {
+		return restTemplate.postForObject("http://localhost:8100/users/authenticate", credentials, UserCredentials.class);
+		}
+		catch (Exception e) {
+
+		  throw new InvalidUserException("Invalid UserId/password");
+		}
 	}
 	
 	public AuthenticationResponse getToken(UserCredentials credentials)
 	{
+		System.out.println("/n /n"+"hellooooooooo");
+
 		String generatedToken =tokenUtil.generateToken(credentials);
 		AuthenticationResponse authentication=new AuthenticationResponse();
 		authentication.setToken(generatedToken);

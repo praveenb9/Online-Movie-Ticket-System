@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.capg.omts.login.exception.InvalidUserException;
 import com.capg.omts.login.model.UserCredentials;
 import com.capg.omts.login.service.ILoginService;
 import com.capg.omts.login.util.TokenUtil;
@@ -41,7 +42,9 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 		{
 			UserCredentials credentials= tokenUtil.decode(token);
 			//System.out.println(cred);
-			UserCredentials userCredentials=loginService.authenticate(credentials);
+			UserCredentials userCredentials;
+			try {
+				userCredentials = loginService.authenticate(credentials);
 			
 			if(userCredentials.getUserType().equals("admin"))
 			{
@@ -61,6 +64,12 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 			context.setSendZuulResponse(false);
 			context.setResponseStatusCode(400);
 			context.setResponseBody("Un-Authorized");
+			} 
+			catch (InvalidUserException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		
 		}
 		return null;
