@@ -25,9 +25,12 @@ public class Seatserviceimp implements Seatservice{
 		
 	}
 	@Override
-	public List<Seat> bookSeats(List<Integer> seatIds) {
+	public List<Seat> bookSeats(Seatlist seatlist) {
 		// TODO Auto-generated method stub
-		 for(int seatId:seatIds) {
+		List<Integer> seatIds = seatlist.getSeatlist();
+
+
+		for(int seatId:seatIds) {
 			 if(seatRepo.existsById(seatId)) {
 			 Seat bookseat = seatRepo.getOne(seatId);
 			 }
@@ -45,15 +48,54 @@ public class Seatserviceimp implements Seatservice{
 		 return seatRepo.saveAll(seatList);
 	}
 	@Override
-	public List<Seat> blockSeats(List<Integer> seatIds) {
+	public List<Seat> blockSeats(Seatlist seatlist) {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		List<Integer> seatIds = seatlist.getSeatlist();
+			 for(int seatId:seatIds) {
+				 if(seatRepo.existsById(seatId)) {
+				 Seat blockseat = seatRepo.getOne(seatId);
+				 
+				 }
+			 }
+				List<Seat> seatList=new ArrayList<>();
+				for(int seatId:seatIds) {
+					
+					Seat blockseat = seatRepo.getOne(seatId);
+					if (blockseat.getSeatStatus() == seatStatus.AVAILABLE) {
+						blockseat.setSeatStatus(seatStatus.BLOCKED);
+						seatList.add(blockseat);
+					}
+				}
+
+				
+
+				return seatRepo.saveAll(seatList);
+			}
+	
 	@Override
-	public List<Seat> cancelSeats(List<Integer> seatIds) {
+	public List<Seat> cancelSeats(Seatlist seatlist) {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		List<Integer> seatIds = seatlist.getSeatlist();
+			 for(int seatId:seatIds) {
+				 if(seatRepo.existsById(seatId)) {
+				 Seat cancelseat = seatRepo.getOne(seatId);
+				 }
+			 }
+			List<Seat> seatList=new ArrayList<>();
+			for(int seatId:seatIds) {
+				Seat cancelseat = seatRepo.getOne(seatId);
+				if (cancelseat.getSeatStatus() == seatStatus.BOOKED) {
+					cancelseat.setSeatStatus(seatStatus.AVAILABLE);
+					seatList.add(cancelseat);
+				}
+				}
+			
+
+			  return seatRepo.saveAll(seatList);
+			}
+
+			
+	
 	@Override
 	@Transactional
 	public Seat addSeat(SeatReader seatReader) {

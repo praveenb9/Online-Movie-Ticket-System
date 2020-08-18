@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capg.omts.model.Seat;
 import com.capg.omts.model.SeatReader;
+import com.capg.omts.model.Seatlist;
 import com.capg.omts.service.Seatserviceimp;
 
 
@@ -34,7 +35,7 @@ public class Seatcontroller {
 	}
 
 	@PutMapping("/book")
-	public ResponseEntity<List<Seat>> bookSeat(@RequestBody List<Integer> seatIds){
+	public ResponseEntity<List<Seat>> bookSeat(@RequestBody Seatlist seatIds){
 
 		return new ResponseEntity<List<Seat>>(seatService.bookSeats(seatIds), HttpStatus.OK);
 	}
@@ -45,7 +46,16 @@ public class Seatcontroller {
 	}
 
 
+	@PutMapping("/block")
+	public ResponseEntity<List<Seat>> blockSeat(@RequestBody Seatlist seatIds){
+		return new ResponseEntity<List<Seat>>(seatService.blockSeats(seatIds), HttpStatus.OK);
+	}
 	
+	@PutMapping("/cancel")
+	public ResponseEntity<List<Seat>> cancelSeat(@RequestBody Seatlist seatIds){
+		return new ResponseEntity<List<Seat>>(seatService.cancelSeats(seatIds), HttpStatus.OK);
+	}
+
 	
 	
 
