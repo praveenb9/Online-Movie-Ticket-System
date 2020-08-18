@@ -29,7 +29,7 @@ public class LoginService implements ILoginService{
 	{
 		System.out.println("login service");
 		try {
-		return restTemplate.postForObject("http://localhost:8100/users/authenticate", credentials, UserCredentials.class);
+		return restTemplate.postForObject("http://localhost:8100/users/public/authenticate", credentials, UserCredentials.class);
 		}
 		catch (Exception e) {
 

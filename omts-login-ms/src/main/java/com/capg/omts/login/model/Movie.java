@@ -3,7 +3,7 @@ package com.capg.omts.login.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,7 +14,7 @@ public class Movie {
 	private String movieGenre;
 	private String movieDirector;
 	private int movieLength;
-	@ElementCollection
+
 	private List<String> languages;
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate movieReleaseDate;

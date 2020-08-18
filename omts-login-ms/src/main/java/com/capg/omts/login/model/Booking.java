@@ -3,9 +3,7 @@ package com.capg.omts.login.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,7 +17,7 @@ public class Booking {
 	private LocalDate bookingDate;
 	private int transactionalId;
 	private double totalCost;
-	@ElementCollection
+
 	private List<Integer> seatList;
 	private Ticket ticket;
 	

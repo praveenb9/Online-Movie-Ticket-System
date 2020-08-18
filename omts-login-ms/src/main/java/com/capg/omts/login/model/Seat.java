@@ -1,8 +1,5 @@
 package com.capg.omts.login.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 public class Seat {
 
 	private int seatId;

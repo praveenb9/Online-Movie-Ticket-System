@@ -2,15 +2,12 @@ package com.capg.omts.login.model;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 public class Ticket {
 
 	private int ticketId;
 	private int noOfSeats;
-	@ElementCollection
+
 	private List<String> seatName;
 	private Booking bookingRef;
 	private boolean ticketStatus;

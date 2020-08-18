@@ -3,8 +3,6 @@ package com.capg.omts.login.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

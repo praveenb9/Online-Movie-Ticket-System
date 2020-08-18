@@ -64,9 +64,7 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 		
 			
 
-			context.setSendZuulResponse(false);
-			context.setResponseStatusCode(400);
-			context.setResponseBody("Un-Authorized");
+			
 			} 
 			catch (InvalidUserException e) {
 				// TODO Auto-generated catch block
@@ -75,6 +73,9 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 			
 		
 		}
+		context.setSendZuulResponse(false);
+		context.setResponseStatusCode(401);
+		context.setResponseBody("Un-Authorized");
 		return null;
 		
 	}

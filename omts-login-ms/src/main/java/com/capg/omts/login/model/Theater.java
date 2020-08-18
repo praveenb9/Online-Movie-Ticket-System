@@ -2,19 +2,14 @@ package com.capg.omts.login.model;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
 
 public class Theater {
 
 	private int theaterId;
 	private String theaterName;
 	private String city;
-	@ElementCollection
+
 	private List<Integer> movies;
-	@OneToMany
 	private List<Screen> listOfScreens;
 	private String managerName;
 	private String managerContact;

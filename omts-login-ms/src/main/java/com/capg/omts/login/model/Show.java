@@ -2,9 +2,6 @@ package com.capg.omts.login.model;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Show {

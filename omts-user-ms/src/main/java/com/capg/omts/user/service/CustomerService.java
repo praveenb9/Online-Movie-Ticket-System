@@ -1,5 +1,7 @@
 package com.capg.omts.user.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,9 @@ public class CustomerService implements ICustomerService{
 	@Override
 	public List<Theater> chooseCity(String city) {
 		
-		return restTemplate.getForObject("", List.class);
+		
+		Theater []list=restTemplate.getForObject("", Theater[].class);
+		return Arrays.asList(list);
 	}
 
 	@Override

@@ -3,9 +3,7 @@ package com.capg.omts.login.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,7 +15,7 @@ public class Customer extends User{
 	private String customerPassword;
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate dateOfBirth;
-	@ElementCollection
+
 	private List<Integer> myTickets;
 	private String customerContact;
 	
