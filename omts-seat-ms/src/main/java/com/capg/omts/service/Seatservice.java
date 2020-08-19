@@ -8,7 +8,7 @@ import com.capg.omts.model.Seat;
 public interface Seatservice {
 	
 	
-	List<Seat> showAvailableSeats();
+	 public List<Seat> showAvailableSeats();
 	
 	 public List<Seat> bookSeats(Seatlist seatIds);
 
