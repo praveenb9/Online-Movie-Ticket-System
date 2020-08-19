@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capg.omts.movie.Exception.MovieException;
 import com.capg.omts.movie.model.Movie;
 import com.capg.omts.movie.repository.MovieRepository;
 @Service
@@ -12,13 +13,13 @@ public class MovieServiceImpl implements MovieService {
 	@Autowired
 MovieRepository MovieRepo;
 	@Override
-	public Movie addMovie(Movie movie) {
+	public Movie addMovie(Movie movie) throws MovieException {
 		
 		return MovieRepo.save(movie);
 	}
 
 	@Override
-	public Movie updateMovie(Movie movie)  {
+	public Movie updateMovie(Movie movie) throws MovieException {
 		Integer movieId = movie.getMovieId();
 		if( MovieRepo.existsById(movieId))
 		{ 
@@ -35,7 +36,7 @@ MovieRepository MovieRepo;
 		throw new RuntimeException ("MovieNotFound");
 	}
 	@Override
-	public Boolean deleteMovieById(int movieId) {
+	public Boolean deleteMovieById(int movieId) throws MovieException {
 		MovieRepo.deleteById(movieId);
 		return true;
 	}
