@@ -27,7 +27,7 @@ public class LoginService implements ILoginService{
 	
 	public UserCredentials authenticate(UserCredentials credentials) throws InvalidUserException
 	{
-		System.out.println("login service");
+		//System.out.println("login service");
 		try {
 		return restTemplate.postForObject("http://localhost:8100/users/public/authenticate", credentials, UserCredentials.class);
 		}
@@ -39,8 +39,6 @@ public class LoginService implements ILoginService{
 	
 	public AuthenticationResponse getToken(UserCredentials credentials)
 	{
-		System.out.println("/n /n"+"hellooooooooo");
-
 		String generatedToken =tokenUtil.generateToken(credentials);
 		AuthenticationResponse authentication=new AuthenticationResponse();
 		authentication.setToken(generatedToken);

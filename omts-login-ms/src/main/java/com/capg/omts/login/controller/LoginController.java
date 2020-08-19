@@ -23,9 +23,9 @@ public class LoginController {
 	@PostMapping("/authenticate")
 	public AuthenticationResponse getUser(@RequestBody UserCredentials credentials) throws InvalidUserException  
 	{
-		System.out.println("login controller");
+		//System.out.println("login controller");
 		UserCredentials userCredentials= loginService.authenticate(credentials);
-		System.out.println(userCredentials);
+		//System.out.println(userCredentials);
 		return loginService.getToken(userCredentials);
 		
 		

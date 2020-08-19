@@ -15,13 +15,13 @@ import com.capg.omts.login.model.ErrorResponse;
 @RestControllerAdvice
 public class ErrorController {
 
-	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
 	@ExceptionHandler(value = {InvalidUserException.class})
 	public ErrorResponse handleStudentAlreadyExistsException(Exception ex, HttpServletRequest req)
 	{
 		return new ErrorResponse(new Date(), ex.getMessage(), 
 	
-				HttpStatus.BAD_REQUEST.getReasonPhrase(), HttpStatus.BAD_GATEWAY.value(), req.getRequestURI());
+				HttpStatus.UNAUTHORIZED.getReasonPhrase(), HttpStatus.UNAUTHORIZED.value(), req.getRequestURI());
 	}
 	
 }
