@@ -39,14 +39,14 @@ public class AdminService implements IAdminService{
 	@Override
 	public Movie addMovie(Movie movie) {
 		// TODO Auto-generated method stub
-		return restTemplate.postForObject("", movie, Movie.class);
+		return restTemplate.postForObject("http://localhost:8199/movie/add", movie, Movie.class);
 	}
 
 	@Override
 	public boolean deleteMovie(int movieId) {
 		// TODO Auto-generated method stub
 		try {
-			restTemplate.delete("");
+			restTemplate.delete("http://localhost:8199/movie/delete/id/"+movieId);
 			
 			}
 			catch (Exception e) {

@@ -21,7 +21,7 @@ public class CustomerController {
 	@Autowired
 	ICustomerService customerService;
 	
-	@GetMapping("/chooseCity/city/{city}")
+	@GetMapping("/city/{city}")
 	public List<Theater> getTheaters(@PathVariable String city)
 	{
 		return customerService.chooseCity(city);

@@ -28,7 +28,7 @@ public class AdminController {
 		return adminService.addTheater(theater);
 	}
 	
-	@DeleteMapping("/deleteTheater/theaterId/{theaterId}")
+	@DeleteMapping("/theater/theaterId/{theaterId}")
 	public boolean deleteTheater(@PathVariable int theaterId)
 	{
 		//System.out.println("hellooooooo" + theaterId);
@@ -41,7 +41,7 @@ public class AdminController {
 		return adminService.addMovie(movie);
 	}
 	
-	@DeleteMapping("/deleteMovie/movieId/{movieId}")
+	@DeleteMapping("/movie/movieId/{movieId}")
 	public boolean deleteMovie(@PathVariable int movieId)
 	{
 		return adminService.deleteMovie(movieId);
@@ -53,7 +53,7 @@ public class AdminController {
 		return adminService.addShow(show);
 	}
 	
-	@DeleteMapping("/deleteShow/showId/{showId}")
+	@DeleteMapping("/show/showId/{showId}")
 	public boolean deleteShow(@PathVariable int showId)
 	{
 		return adminService.deleteShow(showId);
@@ -65,7 +65,7 @@ public class AdminController {
 		return adminService.addScreen(screen);
 	}
 	
-	@DeleteMapping("/deleteScreen/screenId/{screenId}")
+	@DeleteMapping("/screen/screenId/{screenId}")
 	public boolean deleteScreen(@PathVariable int screenId)
 	{
 		return adminService.deleteScreen(screenId);
