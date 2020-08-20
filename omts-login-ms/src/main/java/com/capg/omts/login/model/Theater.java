@@ -2,19 +2,14 @@ package com.capg.omts.login.model;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 public class Theater {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int theaterId;
 	private String theaterName;
 	private String city;
-	@ElementCollection
-	private List<Movie> movies;
-	@ElementCollection
+
+	private List<Integer> movies;
 	private List<Screen> listOfScreens;
 	private String managerName;
 	private String managerContact;
@@ -22,6 +17,31 @@ public class Theater {
 	public Theater() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Theater(int theaterId, String theaterName, String city, List<Integer> movies, List<Screen> listOfScreens,
+			String managerName, String managerContact) {
+		super();
+		this.theaterId = theaterId;
+		this.theaterName = theaterName;
+		this.city = city;
+		this.movies = movies;
+		this.listOfScreens = listOfScreens;
+		this.managerName = managerName;
+		this.managerContact = managerContact;
+	}
+
+	
+
+	public int getTheaterId() {
+		return theaterId;
+	}
+
+
+	public void setTheaterId(int theaterId) {
+		this.theaterId = theaterId;
+	}
+
 
 	public String getTheaterName() {
 		return theaterName;
@@ -39,11 +59,11 @@ public class Theater {
 		this.city = city;
 	}
 
-	public List<Movie> getMovies() {
+	public List<Integer> getMovies() {
 		return movies;
 	}
 
-	public void setMovies(List<Movie> movies) {
+	public void setMovies(List<Integer> movies) {
 		this.movies = movies;
 	}
 
@@ -69,6 +89,14 @@ public class Theater {
 
 	public void setManagerContact(String managerContact) {
 		this.managerContact = managerContact;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Theater [theaterId=" + theaterId + ", theaterName=" + theaterName + ", city=" + city + ", movies="
+				+ movies + ", listOfScreens=" + listOfScreens + ", managerName=" + managerName + ", managerContact="
+				+ managerContact + "]";
 	}
 	
 }

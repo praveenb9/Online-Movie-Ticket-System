@@ -1,16 +1,19 @@
 package com.capg.omts.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Entity
+@Table(name="seat")
 public class Seat {
-	
+	@Id
 
 	private int seatId;
 	
-	private Enum seatStatus;
+	private seatStatus seatStatus;
 
 	private double seatPrice;
-
+	
 	public int getSeatId() {
 		return seatId;
 	}
@@ -19,7 +22,7 @@ public class Seat {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Seat(int seatId, Enum seatStatus, double seatPrice) {
+	public Seat(int seatId, seatStatus seatStatus, double seatPrice) {
 		super();
 		this.seatId = seatId;
 		this.seatStatus = seatStatus;
@@ -30,11 +33,11 @@ public class Seat {
 		this.seatId = seatId;
 	}
 
-	public Enum getSeatStatus() {
+	public seatStatus getSeatStatus() {
 		return seatStatus;
 	}
 
-	public void setSeatStatus(Enum seatStatus) {
+	public void setSeatStatus(seatStatus seatStatus) {
 		this.seatStatus = seatStatus;
 	}
 

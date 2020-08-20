@@ -1,11 +1,7 @@
 package com.capg.omts.login.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 public class Seat {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int seatId;
 	private Enum seatStatus;
 	private double seatPrice;
@@ -13,6 +9,15 @@ public class Seat {
 	public Seat() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Seat(int seatId, Enum seatStatus, double seatPrice) {
+		super();
+		this.seatId = seatId;
+		this.seatStatus = seatStatus;
+		this.seatPrice = seatPrice;
+	}
+
 
 	public Enum getSeatStatus() {
 		return seatStatus;
@@ -29,6 +34,13 @@ public class Seat {
 	public void setSeatPrice(double seatPrice) {
 		this.seatPrice = seatPrice;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Seat [seatId=" + seatId + ", seatStatus=" + seatStatus + ", seatPrice=" + seatPrice + "]";
+	}
+	
 	
 	
 }

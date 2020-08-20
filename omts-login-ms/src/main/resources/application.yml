@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: omts-login-ms
+server:  port: 8000
+zuul:  routes:    movie-user:
+      path: /users/**
+      service-id: omts-user-ms
+      
+#    movie-theater:
+#      path: /theater/**
+#      service-id: omts-theater-ms
+#      strip-prefix: false
+#    movie-booking:
+#      path: /booking/**
+#      service-id: omts-booking-ms
+#      strip-prefix: false
+#    movie-movie:
+#      path: /movie/**
+#      service-id: omts-movie-ms
+#      strip-prefix: false
+#    movie-seat:
+#      path: /seat/**
+#      service-id: omts-seat-ms
+#      strip-prefix: false

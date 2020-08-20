@@ -1,23 +1,44 @@
 package com.capg.omts.movie.model;
-
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+@Entity
 public class Movie {
+	@Id
 	private int movieId;
 	private String movieName;
 	private String movieGenre;
 	private String movieDirector;
 	private int movieLength;
 	@ElementCollection
+	//@CollectionTable(name = "Movie")
 	private List<String> languages;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate movieReleaseDate;
 	
 	public Movie() {
-		// TODO Auto-generated constructor stub
+		
 	}
+	
+
+	public Movie(int movieId, String movieName, String movieGenre, String movieDirector, int movieLength,
+			List<String> languages, LocalDate movieReleaseDate) {
+		super();
+		this.movieId = movieId;
+		this.movieName = movieName;
+		this.movieGenre = movieGenre;
+		this.movieDirector = movieDirector;
+		this.movieLength = movieLength;
+		this.languages = languages;
+		this.movieReleaseDate = movieReleaseDate;
+	}
+
 
 	public int getMovieId() {
 		return movieId;
