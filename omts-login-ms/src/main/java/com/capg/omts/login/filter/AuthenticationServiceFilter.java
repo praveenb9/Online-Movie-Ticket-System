@@ -49,7 +49,7 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 			UserCredentials credentials= tokenUtil.decode(token);
 			//System.out.println(cred);
 			UserCredentials userCredentials;
-			try {
+			//try {
 				userCredentials = loginService.authenticate(credentials);
 			
 			if(uri.contains("/admin/") && userCredentials.getUserType().equals("admin"))
@@ -65,12 +65,12 @@ public class AuthenticationServiceFilter extends ZuulFilter{
 			
 
 			
-			} 
-			catch (InvalidUserException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
+//			} 
+//			catch (InvalidUserException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
 		
 		}
 		context.setSendZuulResponse(false);
