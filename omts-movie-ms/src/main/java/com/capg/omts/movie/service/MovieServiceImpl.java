@@ -14,8 +14,13 @@ public class MovieServiceImpl implements MovieService {
 MovieRepository MovieRepo;
 	@Override
 	public Movie addMovie(Movie movie) throws MovieException {
-		
+		Integer movieId =movie.getMovieId();
+		if(!MovieRepo.existsById(movieId)) {
 		return MovieRepo.save(movie);
+		}
+		else {
+			throw new MovieException("Movie Alredy added");
+		}
 	}
 
 	@Override
@@ -37,7 +42,13 @@ MovieRepository MovieRepo;
 	}
 	@Override
 	public Boolean deleteMovieById(int movieId) throws MovieException {
-		MovieRepo.deleteById(movieId);
+		if(MovieRepo.existsById(movieId)){
+			MovieRepo.deleteById(movieId);
+		}
+		else {
+			throw new MovieException("Movie Already Deleted or Movie Not Found");
+			
+		}
 		return true;
 	}
 
