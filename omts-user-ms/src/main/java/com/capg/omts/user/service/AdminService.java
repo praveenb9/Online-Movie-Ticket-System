@@ -39,6 +39,7 @@ public class AdminService implements IAdminService{
 	@Override
 	public Movie addMovie(Movie movie) {
 		// TODO Auto-generated method stub
+		System.out.println(movie);
 		return restTemplate.postForObject("http://localhost:8199/movie/add", movie, Movie.class);
 	}
 

@@ -3,6 +3,7 @@ package com.capg.omts.user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capg.omts.user.exception.InvalidPasswordException;
 import com.capg.omts.user.exception.InvalidUserException;
 import com.capg.omts.user.model.Admin;
 import com.capg.omts.user.model.Customer;
@@ -25,8 +26,20 @@ admin.setPassword(admin.getAdminPassword());
 	}
 
 	@Override
-	public UserCredentials getUserByUserIdAndPassword(int userId, String password) throws InvalidUserException {
-		// TODO Auto-generated method stub
+	public UserCredentials getUserByUserIdAndPassword(int userId, String password) //throws InvalidUserException 
+	{
+		System.out.println(userId+password);
+		
+		if(userRepo.existsById(userId))
+		{
+			User user=userRepo.getOne(userId);
+			
+			if(!user.getPassword().equals(password))
+			{
+				throw new InvalidPasswordException("Invalid Password");
+			}
+		}
+		
 		if(!userRepo.existsById(userId))
 		{
 			throw new InvalidUserException("User with Id "+ userId+" Does Not Exitst");
@@ -50,5 +63,7 @@ admin.setPassword(admin.getAdminPassword());
 		customer.setPassword(customer.getCustomerPassword());
 		return userRepo.save(customer);
 	}
+	
+	
 
 }
