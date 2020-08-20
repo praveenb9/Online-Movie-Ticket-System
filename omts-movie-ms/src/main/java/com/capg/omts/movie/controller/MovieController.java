@@ -24,7 +24,10 @@ public class MovieController {
 	MovieServiceImpl service;
 	@PostMapping("/add")
 	public Movie addMovie(@RequestBody Movie movie) throws MovieException {
+		int movieId = movie.getMovieId();
+		if (service.validateMovieId(movieId))
 		return service.addMovie(movie);
+		return movie;
 		
 	}
 	@PutMapping("/update")

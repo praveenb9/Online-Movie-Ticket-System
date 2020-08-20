@@ -41,6 +41,7 @@ MovieRepository MovieRepo;
 		return true;
 	}
 
+	
 	@Override
 	public Movie getByMovieName(String movieName) {
 		return MovieRepo.getByMovieName(movieName);
@@ -52,12 +53,20 @@ MovieRepository MovieRepo;
 		return MovieRepo.getOne(movieId);
 	}
 
+
 	@Override
 	public List<Movie> findAllMovies() {
 		// TODO Auto-generated method stub
 		return MovieRepo.findAll();
 	}
 
+	@Override
+	public boolean validateMovieId(int movieId) throws MovieException {
+		String movie = Integer.toString(movieId);
+		if (!(movie.length() >= 4 && movie.charAt(0)=='3')) {
+			throw new MovieException("MovieId must be minimum of 4 characters starting with 3");
+		}
+		return true;
 
-
+	}
 }
