@@ -13,22 +13,12 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpClientErrorException.NotFound;
 import org.springframework.web.client.HttpStatusCodeException;
 
+import com.capg.omts.login.exception.InvalidPasswordException;
 import com.capg.omts.login.exception.InvalidUserException;
 import com.capg.omts.login.model.ErrorResponse;
 
 @RestControllerAdvice
 public class ErrorController {
-
-//	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
-//	@ExceptionHandler(value = {InvalidUserException.class})
-//	public ErrorResponse handleInvalidUserException(Exception ex, HttpServletRequest req)
-//	{
-//		return new ErrorResponse(new Date(), ex.getMessage(), 
-//	
-//				HttpStatus.UNAUTHORIZED.getReasonPhrase(), HttpStatus.UNAUTHORIZED.value(), req.getRequestURI());
-//	}
-	
-	//@ResponseStatus(code = HttpStatus.NOT_FOUND)
 	
 	@ExceptionHandler(value = {HttpStatusCodeException.class})
 	public ResponseEntity<ErrorResponse> handleNotFound(HttpStatusCodeException excepion, HttpServletRequest request)

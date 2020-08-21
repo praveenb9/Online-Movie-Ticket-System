@@ -4,8 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@DiscriminatorValue("admin")
+
 public class Admin extends User {
 	
 	private int adminId;
@@ -16,7 +15,7 @@ public class Admin extends User {
 	private String adminContact;
 	
 	public Admin() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Admin(int adminId, String adminName, String adminPassword, LocalDate dateOfBirth, String adminContact) {

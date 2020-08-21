@@ -3,7 +3,6 @@ package com.capg.omts.login.model;
 //import java.time.String;
 import java.util.List;
 
-
 public class Movie {
 
 	private int movieId;
@@ -13,14 +12,12 @@ public class Movie {
 	private int movieLength;
 
 	private List<String> languages;
-	//@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private String movieReleaseDate;
-	
+
 	public Movie() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	
 	public Movie(int movieId, String movieName, String movieGenre, String movieDirector, int movieLength,
 			List<String> languages, String movieReleaseDate) {
 		super();
@@ -33,17 +30,13 @@ public class Movie {
 		this.movieReleaseDate = movieReleaseDate;
 	}
 
-	
-
 	public int getMovieId() {
 		return movieId;
 	}
 
-
 	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}
-
 
 	public String getMovieName() {
 		return movieName;
@@ -93,14 +86,11 @@ public class Movie {
 		this.movieReleaseDate = movieReleaseDate;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Movie [movieId=" + movieId + ", movieName=" + movieName + ", movieGenre=" + movieGenre
 				+ ", movieDirector=" + movieDirector + ", movieLength=" + movieLength + ", languages=" + languages
 				+ ", movieReleaseDate=" + movieReleaseDate + "]";
 	}
-	
-	
-	
+
 }

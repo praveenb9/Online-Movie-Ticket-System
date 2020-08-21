@@ -13,71 +13,50 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 
-
-
 @Component
-public class AuthenticationServiceFilter extends ZuulFilter{
+public class AuthenticationServiceFilter extends ZuulFilter {
 
 	@Autowired
 	ILoginService loginService;
-	
+
 	@Autowired
 	TokenUtil tokenUtil;
-	
-	
+
 	@Override
 	public boolean shouldFilter() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public Object run() throws ZuulException {
-		// TODO Auto-generated method stub
-		RequestContext context=RequestContext.getCurrentContext();
-		HttpServletRequest request=context.getRequest();
-		String uri=request.getRequestURI();
-		if(uri.contains("/public/"))
-		{
+		RequestContext context = RequestContext.getCurrentContext();
+		HttpServletRequest request = context.getRequest();
+		String uri = request.getRequestURI();
+		if (uri.contains("/public/")) {
 			return null;
 		}
-		String token =request.getHeader("Authorization");
-		
-		
-		if(token != null)
-		{
-			UserCredentials credentials= tokenUtil.decode(token);
-			//System.out.println(cred);
-			UserCredentials userCredentials;
-			//try {
-				userCredentials = loginService.authenticate(credentials);
-			
-			if(uri.contains("/admin/") && userCredentials.getUserType().equals("admin"))
-			{
-				return null;
-			}
-			
-			if(uri.contains("/customer/") && userCredentials.getUserType().equals("customer"))
-			{
-				return null;
-			}
-		
-			
+		String token = request.getHeader("Authorization");
 
-			
-//			} 
-//			catch (InvalidUserException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			
-		
+		if (token != null) {
+			UserCredentials credentials = tokenUtil.decode(token);
+			UserCredentials userCredentials;
+
+			userCredentials = loginService.authenticate(credentials);
+
+			if (uri.contains("/admin/") && userCredentials.getUserType().equals("admin")) {
+				return null;
+			}
+
+			if (uri.contains("/customer/") && userCredentials.getUserType().equals("customer")) {
+				return null;
+			}
+
 		}
 		context.setSendZuulResponse(false);
 		context.setResponseStatusCode(401);
 		context.setResponseBody("Un-Authorized");
 		return null;
-		
+
 	}
 
 	@Override

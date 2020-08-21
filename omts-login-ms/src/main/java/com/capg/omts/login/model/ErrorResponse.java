@@ -40,7 +40,7 @@ public class ErrorResponse {
 		this.path = path;
 	}
 	 public ErrorResponse() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public ErrorResponse(Date date, String message, String status, int error, String path) {
 		super();

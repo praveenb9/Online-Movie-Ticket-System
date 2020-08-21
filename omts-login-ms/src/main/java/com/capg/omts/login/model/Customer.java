@@ -7,8 +7,7 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@DiscriminatorValue("customer")
+
 public class Customer extends User{
 	private int customerId;
 	private String customerName;
@@ -20,7 +19,7 @@ public class Customer extends User{
 	private String customerContact;
 	
 	public Customer() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Customer(int customerId,String customerName, String customerPassword, LocalDate dateOfBirth, List<Integer> myTickets,
