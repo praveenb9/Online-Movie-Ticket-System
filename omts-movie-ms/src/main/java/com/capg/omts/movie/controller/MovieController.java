@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capg.omts.movie.Exception.MovieException;
 import com.capg.omts.movie.model.Movie;
 import com.capg.omts.movie.service.MovieServiceImpl;
 
@@ -22,16 +23,19 @@ public class MovieController {
 	@Autowired
 	MovieServiceImpl service;
 	@PostMapping("/add")
-	public Movie addMovie(@RequestBody Movie movie) {
+	public Movie addMovie(@RequestBody Movie movie) throws MovieException {
+		int movieId = movie.getMovieId();
+		if (service.validateMovieId(movieId))
 		return service.addMovie(movie);
+		return movie;
 		
 	}
 	@PutMapping("/update")
-	public Movie updateMovie(@RequestBody Movie movie ) {
+	public Movie updateMovie(@RequestBody Movie movie ) throws MovieException {
 	return service.updateMovie(movie);
 }
 	@DeleteMapping("/delete/id/{id}")
-	public Boolean deleteMovieById(@PathVariable("id") int movieId) {
+	public Boolean deleteMovieById(@PathVariable("id") int movieId) throws MovieException {
 	service.deleteMovieById(movieId);
 	return true;
 	}

@@ -15,7 +15,7 @@ public class Theater {
 	private String managerContact;
 	
 	public Theater() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	

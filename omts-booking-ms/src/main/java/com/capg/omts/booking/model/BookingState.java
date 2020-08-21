@@ -1,5 +1,6 @@
 package com.capg.omts.booking.model;
 
-public class BookingState {
-
+public enum BookingState {
+	
+	AVAILABLE,BLOCKED,BOOKED;
 }

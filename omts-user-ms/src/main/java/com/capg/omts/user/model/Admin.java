@@ -2,13 +2,9 @@ package com.capg.omts.user.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
@@ -23,7 +19,7 @@ public class Admin extends User {
 	private String adminContact;
 	
 	public Admin() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Admin(int adminId, String adminName, String adminPassword, LocalDate dateOfBirth, String adminContact) {
@@ -79,6 +75,52 @@ public class Admin extends User {
 	public String toString() {
 		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", adminPassword=" + adminPassword
 				+ ", dateOfBirth=" + dateOfBirth + ", adminContact=" + adminContact + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((adminContact == null) ? 0 : adminContact.hashCode());
+		result = prime * result + adminId;
+		result = prime * result + ((adminName == null) ? 0 : adminName.hashCode());
+		result = prime * result + ((adminPassword == null) ? 0 : adminPassword.hashCode());
+		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Admin other = (Admin) obj;
+		if (adminContact == null) {
+			if (other.adminContact != null)
+				return false;
+		} else if (!adminContact.equals(other.adminContact))
+			return false;
+		if (adminId != other.adminId)
+			return false;
+		if (adminName == null) {
+			if (other.adminName != null)
+				return false;
+		} else if (!adminName.equals(other.adminName))
+			return false;
+		if (adminPassword == null) {
+			if (other.adminPassword != null)
+				return false;
+		} else if (!adminPassword.equals(other.adminPassword))
+			return false;
+		if (dateOfBirth == null) {
+			if (other.dateOfBirth != null)
+				return false;
+		} else if (!dateOfBirth.equals(other.dateOfBirth))
+			return false;
+		return true;
 	}
 	
 	

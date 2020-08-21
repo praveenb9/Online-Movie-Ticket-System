@@ -18,7 +18,7 @@ public class Screen {
 	private int columns;
 	
 	public Screen() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	

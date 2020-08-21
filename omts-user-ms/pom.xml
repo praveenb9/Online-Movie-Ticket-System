@@ -37,6 +37,17 @@
     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
     <version>2.2.3.RELEASE</version>
 </dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    <version>2.2.3.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix-dashboard -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+    <version>2.2.3.RELEASE</version>
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -49,6 +60,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+	<groupId>org.sonarsource.scanner.maven</groupId>
+  		<artifactId>sonar-maven-plugin</artifactId>
+    	<version>3.6.0.1398</version>
+</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -59,6 +75,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
 	</dependencies>
 
 	<build>

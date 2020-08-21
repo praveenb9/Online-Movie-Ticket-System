@@ -4,13 +4,13 @@ package com.capg.omts.login.model;
 
 
 public class User {
-	//@Id
+	
 	private int userId;
 	private String userName;
 	private String password;
 	
 	public User() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public User(int userId, String userName, String password) {

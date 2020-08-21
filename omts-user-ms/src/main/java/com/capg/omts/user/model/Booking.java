@@ -24,7 +24,7 @@ public class Booking {
 	private Ticket ticket;
 	
 	public Booking() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	

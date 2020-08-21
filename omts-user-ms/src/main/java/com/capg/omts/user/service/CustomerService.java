@@ -1,6 +1,5 @@
 package com.capg.omts.user.service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class CustomerService implements ICustomerService{
 	@Autowired
 	RestTemplate restTemplate;
 
-	//@SuppressWarnings("unchecked")
+	
 	@Override
 	public List<Theater> chooseCity(String city) {
 		

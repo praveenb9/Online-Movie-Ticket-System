@@ -11,9 +11,9 @@ public class AuthenticationResponse {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
+
 	public AuthenticationResponse() {
-		// TODO Auto-generated constructor stub
+
 	}
-	
+
 }

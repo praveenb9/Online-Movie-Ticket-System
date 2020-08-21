@@ -14,7 +14,7 @@ public class Ticket {
 	private String screenName;
 	
 	public Ticket() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	

@@ -1,6 +1,5 @@
 package com.capg.omts.user.controller;
 
-
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,37 +16,40 @@ import com.capg.omts.user.model.Customer;
 import com.capg.omts.user.model.User;
 import com.capg.omts.user.model.UserCredentials;
 import com.capg.omts.user.service.IUserService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	
+
 	@Autowired
 	private IUserService userService;
-	
+
 	@Autowired
 	Random random;
 
 	@PostMapping("/public/adminRegister")
-	public Admin registerAsAdmin(@RequestBody Admin admin)
-	{
-		 admin.setAdminId( random.nextInt(1000)+1000);
+	public Admin registerAsAdmin(@RequestBody Admin admin) {
+		admin.setAdminId(random.nextInt(1000) + 1000);
 
 		return userService.addAdmin(admin);
 	}
-	
+
+	@HystrixCommand(fallbackMethod = "registerAsCustomerFallBack")
 	@PostMapping("/public/customerRegister")
-	public Customer registerAsCustomer(@RequestBody Customer customer)
-	{
-customer.setCustomerId(random.nextInt(1000000));
+	public Customer registerAsCustomer(@RequestBody Customer customer) {
+		// int x=5/0;
+		customer.setCustomerId(random.nextInt(1000000));
 		return userService.addCustomer(customer);
 	}
 
 	@PostMapping("/public/authenticate")
-	//@ResponseStatus(code = HttpStatus.NOT_FOUND)
-	public UserCredentials getUserInfo(@RequestBody UserCredentials credentials) throws InvalidUserException
-	{
+	public UserCredentials getUserInfo(@RequestBody UserCredentials credentials) {
 		return userService.getUserByUserIdAndPassword(credentials.getUserId(), credentials.getPassword());
 
+	}
+
+	public Customer registerAsCustomerFallBack(@RequestBody Customer customer) {
+		return new Customer();
 	}
 }

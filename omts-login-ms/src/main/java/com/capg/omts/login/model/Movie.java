@@ -1,11 +1,7 @@
 package com.capg.omts.login.model;
 
-import java.time.LocalDate;
+//import java.time.String;
 import java.util.List;
-
-
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class Movie {
 
@@ -16,16 +12,14 @@ public class Movie {
 	private int movieLength;
 
 	private List<String> languages;
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private LocalDate movieReleaseDate;
-	
+	private String movieReleaseDate;
+
 	public Movie() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	
 	public Movie(int movieId, String movieName, String movieGenre, String movieDirector, int movieLength,
-			List<String> languages, LocalDate movieReleaseDate) {
+			List<String> languages, String movieReleaseDate) {
 		super();
 		this.movieId = movieId;
 		this.movieName = movieName;
@@ -36,17 +30,13 @@ public class Movie {
 		this.movieReleaseDate = movieReleaseDate;
 	}
 
-	
-
 	public int getMovieId() {
 		return movieId;
 	}
 
-
 	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}
-
 
 	public String getMovieName() {
 		return movieName;
@@ -88,14 +78,13 @@ public class Movie {
 		this.languages = languages;
 	}
 
-	public LocalDate getMovieReleaseDate() {
+	public String getMovieReleaseDate() {
 		return movieReleaseDate;
 	}
 
-	public void setMovieReleaseDate(LocalDate movieReleaseDate) {
+	public void setMovieReleaseDate(String movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
 	}
-
 
 	@Override
 	public String toString() {
@@ -103,7 +92,5 @@ public class Movie {
 				+ ", movieDirector=" + movieDirector + ", movieLength=" + movieLength + ", languages=" + languages
 				+ ", movieReleaseDate=" + movieReleaseDate + "]";
 	}
-	
-	
-	
+
 }

@@ -17,7 +17,7 @@ public class Show {
 	private int theaterId;
 	
 	public Show() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	
