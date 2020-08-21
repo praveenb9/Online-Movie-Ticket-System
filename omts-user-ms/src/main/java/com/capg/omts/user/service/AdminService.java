@@ -1,9 +1,7 @@
 package com.capg.omts.user.service;
 
-import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,7 +23,7 @@ public class AdminService implements IAdminService{
 
 	@Override
 	public boolean deleteTheater(int theaterId) {
-		// TODO Auto-generated method stub
+		
 		try {
 		restTemplate.delete("");
 		
@@ -38,14 +36,14 @@ public class AdminService implements IAdminService{
 
 	@Override
 	public Movie addMovie(Movie movie) {
-		// TODO Auto-generated method stub
+		
 		System.out.println(movie);
 		return restTemplate.postForObject("http://localhost:8199/movie/add", movie, Movie.class);
 	}
 
 	@Override
 	public boolean deleteMovie(int movieId) {
-		// TODO Auto-generated method stub
+		
 		try {
 			restTemplate.delete("http://localhost:8199/movie/delete/id/"+movieId);
 			
@@ -58,13 +56,13 @@ public class AdminService implements IAdminService{
 
 	@Override
 	public Screen addScreen(Screen screen) {
-		// TODO Auto-generated method stub
+		
 		return restTemplate.postForObject("", screen, Screen.class);
 	}
 
 	@Override
 	public boolean deleteScreen(int screenId) {
-		// TODO Auto-generated method stub
+		
 		try {
 			restTemplate.delete("");
 			
@@ -77,13 +75,11 @@ public class AdminService implements IAdminService{
 
 	@Override
 	public Show addShow(Show show) {
-		// TODO Auto-generated method stub
 		return restTemplate.postForObject("", show, Show.class);
 	}
 
 	@Override
 	public boolean deleteShow(int showId) {
-		// TODO Auto-generated method stub
 		try {
 			restTemplate.delete("");
 			

@@ -6,9 +6,6 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -92,6 +89,58 @@ public class Customer extends User{
 		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerPassword="
 				+ customerPassword + ", dateOfBirth=" + dateOfBirth + ", myTickets=" + myTickets + ", customerContact="
 				+ customerContact + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((customerContact == null) ? 0 : customerContact.hashCode());
+		result = prime * result + customerId;
+		result = prime * result + ((customerName == null) ? 0 : customerName.hashCode());
+		result = prime * result + ((customerPassword == null) ? 0 : customerPassword.hashCode());
+		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
+		result = prime * result + ((myTickets == null) ? 0 : myTickets.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (customerContact == null) {
+			if (other.customerContact != null)
+				return false;
+		} else if (!customerContact.equals(other.customerContact))
+			return false;
+		if (customerId != other.customerId)
+			return false;
+		if (customerName == null) {
+			if (other.customerName != null)
+				return false;
+		} else if (!customerName.equals(other.customerName))
+			return false;
+		if (customerPassword == null) {
+			if (other.customerPassword != null)
+				return false;
+		} else if (!customerPassword.equals(other.customerPassword))
+			return false;
+		if (dateOfBirth == null) {
+			if (other.dateOfBirth != null)
+				return false;
+		} else if (!dateOfBirth.equals(other.dateOfBirth))
+			return false;
+		if (myTickets == null) {
+			if (other.myTickets != null)
+				return false;
+		} else if (!myTickets.equals(other.myTickets))
+			return false;
+		return true;
 	}
 	
 	

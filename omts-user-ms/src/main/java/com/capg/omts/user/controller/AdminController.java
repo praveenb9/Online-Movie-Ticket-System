@@ -24,14 +24,14 @@ public class AdminController {
 	@PostMapping("/addTheater")
 	public Theater addTheater(@RequestBody Theater theater)
 	{
-		//System.out.println("/n"+"helloooooo");
+		
 		return adminService.addTheater(theater);
 	}
 	
 	@DeleteMapping("/theater/theaterId/{theaterId}")
 	public boolean deleteTheater(@PathVariable int theaterId)
 	{
-		//System.out.println("hellooooooo" + theaterId);
+		
 		return adminService.deleteTheater(theaterId);
 	}
 	
