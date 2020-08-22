@@ -3,12 +3,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CollectionTable;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
+//@DiscriminatorValue("movie")
 public class Movie {
 	@Id
 	private int movieId;

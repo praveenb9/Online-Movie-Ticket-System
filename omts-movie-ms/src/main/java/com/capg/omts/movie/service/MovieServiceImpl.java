@@ -3,12 +3,15 @@ package com.capg.omts.movie.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capg.omts.movie.Exception.MovieException;
 import com.capg.omts.movie.model.Movie;
 import com.capg.omts.movie.repository.MovieRepository;
 @Service
+//@Transactional 
 public class MovieServiceImpl implements MovieService {
 	@Autowired
 MovieRepository MovieRepo;
@@ -60,14 +63,14 @@ MovieRepository MovieRepo;
 
 	@Override
 	public Movie getMovieById(int movieId) {
-		// TODO Auto-generated method stub
+		
 		return MovieRepo.getOne(movieId);
 	}
 
 
 	@Override
 	public List<Movie> findAllMovies() {
-		// TODO Auto-generated method stub
+		
 		return MovieRepo.findAll();
 	}
 
