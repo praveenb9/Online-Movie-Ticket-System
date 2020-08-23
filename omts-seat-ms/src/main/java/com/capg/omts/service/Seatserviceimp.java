@@ -13,6 +13,7 @@ import com.capg.omts.exceptions.BookSeatException;
 import com.capg.omts.exceptions.CancelSeatException;
 import com.capg.omts.exceptions.SeatExistsException;
 import com.capg.omts.exceptions.SeatnotFound;
+import com.capg.omts.exceptions.Seatnumberexception;
 import com.capg.omts.model.*;
 import com.capg.omts.repository.Seatrepository;
 import com.capg.omts.model.SeatReader;
@@ -130,8 +131,11 @@ public class Seatserviceimp implements Seatservice{
 	
 	@Override
 	@Transactional
-	public Seat addSeat(SeatReader seatReader) {
+	public Seat addSeat(SeatReader seatReader)  {
 		// TODO Auto-generated method stub
+	if (validateSeatId(seatReader.getSeatId())) {
+		
+	
 		if (seatRepo.existsById(seatReader.getSeatId())) {
 			throw new SeatExistsException("Seat already exists");
 		}
@@ -148,10 +152,20 @@ public class Seatserviceimp implements Seatservice{
 			default:
 				seatStatus=seatStatus.AVAILABLE;
 				break;
-			}
+			}		
+	}
 			Seat seat=new Seat(seatReader.getSeatId(),seatStatus,seatReader.getSeatPrice());
-		return seatRepo.save(seat);
+	
+			return seatRepo.save(seat);
+	
 	}
-	}
+	public boolean validateSeatId(int SeatId) throws Seatnumberexception {
+		String seat = Integer.toString(SeatId);
+		if (!(seat.length() == 6)) {
+			throw new Seatnumberexception("SeatId must be minimum six digits"+SeatId);
+		}
+		return true;	
+ }
+ }
 	
 
