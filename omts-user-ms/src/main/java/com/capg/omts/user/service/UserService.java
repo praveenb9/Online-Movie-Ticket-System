@@ -97,6 +97,7 @@ public class UserService implements IUserService {
 		customer.setUserId(customer.getCustomerId());
 		customer.setUserName(customer.getCustomerName());
 		customer.setPassword(customer.getCustomerPassword());
+		
 		return userRepo.save(customer);
 	}
 

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,9 @@ public class UserController {
 	@PostMapping("/public/customerRegister")
 	public Customer registerAsCustomer(@RequestBody Customer customer) {
 		// int x=5/0;
+System.out.println("user controller");
 		customer.setCustomerId(random.nextInt(1000000));
+		System.out.println(customer);
 		return userService.addCustomer(customer);
 	}
 
