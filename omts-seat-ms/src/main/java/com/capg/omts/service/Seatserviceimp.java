@@ -16,6 +16,7 @@ import com.capg.omts.exceptions.SeatnotFound;
 import com.capg.omts.exceptions.Seatnumberexception;
 import com.capg.omts.model.*;
 import com.capg.omts.repository.Seatrepository;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.capg.omts.model.SeatReader;
  @Service
 public class Seatserviceimp implements Seatservice{
@@ -128,7 +129,7 @@ public class Seatserviceimp implements Seatservice{
 		}
 
 			
-	
+	@HystrixCommand(fallbackMethod = "addSeat_Fallback")
 	@Override
 	@Transactional
 	public Seat addSeat(SeatReader seatReader)  {
