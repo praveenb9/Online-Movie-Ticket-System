@@ -18,14 +18,14 @@ public class AdminService implements IAdminService{
 
 	@Override
 	public Theater addTheater(Theater theater) {
-				return restTemplate.postForObject("", theater, Theater.class);
+				return restTemplate.postForObject("http://localhost:8686/theatre/add", theater, Theater.class);
 	}
 
 	@Override
 	public boolean deleteTheater(int theaterId) {
 		
 		try {
-		restTemplate.delete("");
+		restTemplate.delete("http://localhost:8686/theatre/delete/id/"+theaterId);
 		
 		}
 		catch (Exception e) {
@@ -57,14 +57,14 @@ public class AdminService implements IAdminService{
 	@Override
 	public Screen addScreen(Screen screen) {
 		
-		return restTemplate.postForObject("", screen, Screen.class);
+		return restTemplate.postForObject("http://localhost:8686/screen/add", screen, Screen.class);
 	}
 
 	@Override
 	public boolean deleteScreen(int screenId) {
 		
 		try {
-			restTemplate.delete("");
+			restTemplate.delete("http://localhost:8686/screen/delete/id/"+screenId);
 			
 			}
 			catch (Exception e) {
@@ -75,13 +75,13 @@ public class AdminService implements IAdminService{
 
 	@Override
 	public Show addShow(Show show) {
-		return restTemplate.postForObject("", show, Show.class);
+		return restTemplate.postForObject("http://localhost:8686/show/add", show, Show.class);
 	}
 
 	@Override
 	public boolean deleteShow(int showId) {
 		try {
-			restTemplate.delete("");
+			restTemplate.delete("http://localhost:8686/show/delete/id/"+showId);
 			
 			}
 			catch (Exception e) {
