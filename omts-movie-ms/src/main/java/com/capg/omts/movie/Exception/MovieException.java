@@ -1,6 +1,6 @@
 package com.capg.omts.movie.Exception;
 
-public class MovieException extends Exception{
+public class MovieException extends RuntimeException{
 	/**
 	 * 
 	 */
