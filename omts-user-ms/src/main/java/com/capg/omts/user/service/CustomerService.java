@@ -33,9 +33,7 @@ public class CustomerService implements ICustomerService{
 	@Override
 	public boolean cancelMovieTicket(Ticket ticket) {
 		try {
-			 restTemplate.delete("http://localhost:8888/ticket/", ticket.getTicketId());
-//					postForObject("http://localhost:8888/ticket/", ticket.getTicketId(),boolean.class);
-			
+			 restTemplate.delete("http://localhost:8888/ticket/", ticket.getTicketId());			
 			}
 			catch (Exception e) {
 				return false;
