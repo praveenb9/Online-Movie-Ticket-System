@@ -1,3 +1,9 @@
+/**
+ 	* Project Name : Online Movie Ticket System
+ 	*
+ 	* 
+**/
+
 package com.capg.omts.login.controller;
 
 import java.util.Date;
@@ -10,6 +16,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpStatusCodeException;
 import com.capg.omts.login.model.ErrorResponse;
 
+/**
+	* The ErrorController class controls  the Exceptions Raised.
+	*
+	* @author   :Praveen Bandi
+	* @version  :1.0
+	* @since    :2020-07-22 
+**/
 @RestControllerAdvice
 public class ErrorController {
 	

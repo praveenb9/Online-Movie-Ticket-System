@@ -1,27 +1,45 @@
+/**
+ 	* Project Name : Online Movie Ticket System
+ 	*
+ 	* 
+**/
+
 package com.capg.omts.login.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
-
-import com.capg.omts.login.exception.InvalidUserException;
 import com.capg.omts.login.model.AuthenticationResponse;
 import com.capg.omts.login.model.UserCredentials;
 import com.capg.omts.login.service.ILoginService;
+
+/**
+ 	* The LoginController class Do the Authentication of A User
+ 	*
+ 	* @author   :Praveen Bandi
+ 	* @version  :1.0
+ 	* @since    :YYYY-MM-DD 
+**/
 
 @RestController
 @RequestMapping("/login")
 @CrossOrigin
 public class LoginController {
 
+	// Tells the application context to inject an instance of ILoginService here
 	@Autowired
 	private ILoginService loginService;
 
+	
+	/**
+	   * This method is used to Verify Whether The User with The given Credentials is Exists or not and Generates a token is user Exists. 
+	   * 
+	   * @return AuthenicationResponse : This returns the Token.
+	**/   
+	
 	@PostMapping("/public/authenticate")
 	public AuthenticationResponse getUser(@RequestBody UserCredentials credentials) {
 		UserCredentials userCredentials = loginService.authenticate(credentials);
