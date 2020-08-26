@@ -1,3 +1,8 @@
+/**
+ 	* Project Name : Online Movie Ticket System
+ 	*
+ 	* 
+**/
 package com.capg.omts.login.util;
 
 import org.springframework.stereotype.Component;

@@ -1,9 +1,13 @@
+/**
+ 	* Project Name : Online Movie Ticket System
+ 	 
+**/
+
 package com.capg.omts.login.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import com.capg.omts.login.model.AuthenticationResponse;
 import com.capg.omts.login.model.User;
 import com.capg.omts.login.model.UserCredentials;
@@ -18,11 +22,7 @@ public class LoginService implements ILoginService {
 	@Autowired
 	private TokenUtil tokenUtil;
 
-	@Override
-	public User getUser() {
-
-		return null;
-	}
+	
 
 	public UserCredentials authenticate(UserCredentials credentials) {
 		System.out.println(credentials);
@@ -38,4 +38,9 @@ public class LoginService implements ILoginService {
 
 		return authentication;
 	}
+
+	@Override
+	public UserCredentials getUser(User user) {
+		return restTemplate.postForObject("http://localhost:8100/users/public/authenticate", user,
+				UserCredentials.class);	}
 }

@@ -7,7 +7,7 @@ import com.capg.omts.login.model.UserCredentials;
 
 public interface ILoginService {
 
-	public User getUser();
+	public UserCredentials getUser(User user);
 	public UserCredentials authenticate(UserCredentials credentials);
 	public AuthenticationResponse getToken(UserCredentials credentials);
 }

@@ -25,7 +25,7 @@ public class MovieController {
 	@Autowired
 	MovieServiceImpl service;
 	@PostMapping("/add")
-	public Movie addMovie(@RequestBody Movie movie) throws MovieException {
+	public Movie addMovie(@RequestBody Movie movie)  {
 		int movieId = movie.getMovieId();
 		if (service.validateMovieId(movieId))
 		return service.addMovie(movie);
@@ -33,11 +33,11 @@ public class MovieController {
 		
 	}
 	@PutMapping("/update")
-	public Movie updateMovie(@RequestBody Movie movie ) throws MovieException {
+	public Movie updateMovie(@RequestBody Movie movie ) {
 	return service.updateMovie(movie);
 }
 	@DeleteMapping("/delete/id/{id}")
-	public Boolean deleteMovieById(@PathVariable("id") int movieId) throws MovieException {
+	public Boolean deleteMovieById(@PathVariable("id") int movieId)  {
 	service.deleteMovieById(movieId);
 	return true;
 	}

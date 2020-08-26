@@ -16,7 +16,7 @@ public class MovieServiceImpl implements MovieService {
 	@Autowired
 MovieRepository MovieRepo;
 	@Override
-	public Movie addMovie(Movie movie) throws MovieException {
+	public Movie addMovie(Movie movie)  {
 		Integer movieId =movie.getMovieId();
 		if(!MovieRepo.existsById(movieId)) {
 		return MovieRepo.save(movie);
@@ -27,7 +27,7 @@ MovieRepository MovieRepo;
 	}
 
 	@Override
-	public Movie updateMovie(Movie movie) throws MovieException {
+	public Movie updateMovie(Movie movie)  {
 		Integer movieId = movie.getMovieId();
 		if( MovieRepo.existsById(movieId))
 		{ 
@@ -44,7 +44,7 @@ MovieRepository MovieRepo;
 		throw new RuntimeException ("MovieNotFound");
 	}
 	@Override
-	public Boolean deleteMovieById(int movieId) throws MovieException {
+	public Boolean deleteMovieById(int movieId)  {
 		if(MovieRepo.existsById(movieId)){
 			MovieRepo.deleteById(movieId);
 		}
@@ -75,7 +75,7 @@ MovieRepository MovieRepo;
 	}
 
 	@Override
-	public boolean validateMovieId(int movieId) throws MovieException {
+	public boolean validateMovieId(int movieId)  {
 		String movie = Integer.toString(movieId);
 		if (!(movie.length() >= 4 && movie.charAt(0)=='3')) {
 			throw new MovieException("MovieId must be minimum of 4 characters starting with 3");
