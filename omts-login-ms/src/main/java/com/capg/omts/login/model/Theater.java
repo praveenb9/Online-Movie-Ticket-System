@@ -8,7 +8,6 @@ public class Theater {
 	private int theaterId;
 	private String theaterName;
 	private String city;
-
 	private List<Integer> movies;
 	private List<Screen> listOfScreens;
 	private String managerName;

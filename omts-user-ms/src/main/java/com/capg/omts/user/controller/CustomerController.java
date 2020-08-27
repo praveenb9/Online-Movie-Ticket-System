@@ -1,5 +1,6 @@
 package com.capg.omts.user.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class CustomerController {
 	@GetMapping("/city/{city}")
 	public List<Theater> getTheaters(@PathVariable String city)
 	{
+	
 		return customerService.chooseCity(city);
 	}
 	
@@ -37,5 +39,12 @@ public class CustomerController {
 	public boolean cancelMovieTicket(@RequestBody Ticket ticket)
 	{
 		return customerService.cancelMovieTicket(ticket);
+	}
+	
+	@GetMapping("/viewTheaters")
+	public List<Theater> getAllTheaters()
+	{
+	return new ArrayList<>();
+		//return customerService.chooseCity(city);
 	}
 }
