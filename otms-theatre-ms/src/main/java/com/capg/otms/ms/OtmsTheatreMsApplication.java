@@ -1,13 +1,13 @@
-package com.capg.otms.ms.theater;
+package com.capg.otms.ms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OtmsTheaterMsApplication {
+public class OtmsTheatreMsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OtmsTheaterMsApplication.class, args);
+		SpringApplication.run(OtmsTheatreMsApplication.class, args);
 	}
 
 }
