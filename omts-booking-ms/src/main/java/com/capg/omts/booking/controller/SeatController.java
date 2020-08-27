@@ -1,26 +1,20 @@
 package com.capg.omts.booking.controller;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
 import com.capg.omts.booking.model.Seat;
 import com.capg.omts.booking.service.SeatServiceImpl;
 
-
+@CrossOrigin("https://localhost:4200")
 @RestController
 @RequestMapping("/booking")
 public class SeatController {
@@ -28,33 +22,18 @@ public class SeatController {
 	@Autowired
 	SeatServiceImpl seatService;
 	
+	//some post method for adding seats
 	@PostMapping("/add/seat")
 	public ResponseEntity<Seat> addSeat(@Valid @RequestBody Seat seat) {
 		seatService.addSeat(seat);
-		return new ResponseEntity<Seat>(seat, HttpStatus.CREATED);	
+		return new ResponseEntity<>(seat, HttpStatus.CREATED);	
 	}
-	
-//    @PutMapping("/book/seats")
-//	public ResponseEntity<List<Seat>> bookSeat(@RequestBody List<Integer> seatIds){
-//		
-//		return new ResponseEntity<List<Seat>>(seatService.bookSeats(seatIds), HttpStatus.OK);
-//	}
 
+	//some get methods for getting the available seats
 	@GetMapping("/all/seats")
-	public ResponseEntity<List<Seat>> AvailableSeats(){
+	public ResponseEntity<List<Seat>> getAvailableSeats(){
 		List<Seat> seats = seatService.getAvailableSeats();
-		return new ResponseEntity<List<Seat>>(seats, HttpStatus.OK);
+		return new ResponseEntity<>(seats, HttpStatus.OK);
 	}	
-	
-//	@PutMapping("/block/seats")
-//	public ResponseEntity<List<Seat>> blockSeat(@RequestBody List<Integer> seatIds){
-//		return new ResponseEntity<List<Seat>>(seatService.blockSeats(seatIds), HttpStatus.OK);
-//	}
-//
-//	@PutMapping("/cancel/seats")
-//	public ResponseEntity<List<Seat>> cancelSeat(@RequestBody List<Integer> seatIds){
-//		return new ResponseEntity<List<Seat>>(seatService.cancelSeats(seatIds), HttpStatus.OK);
-//	}
-
 
 }

@@ -1,14 +1,11 @@
 package com.capg.omts.booking.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+
+import com.capg.omts.booking.Exception.SlotNotAvailableException;
 import com.capg.omts.booking.Exception.TicketCancellationException;
-import com.capg.omts.booking.Exception.TicketNotFoundException;
-import com.capg.omts.booking.model.Booking;
-import com.capg.omts.booking.model.Seat;
 import com.capg.omts.booking.model.Ticket;
 import com.capg.omts.booking.repository.TicketRepository;
 
@@ -17,30 +14,24 @@ public class TicketServiceImpl implements TicketService {
 	@Autowired
     TicketRepository ticketRepo;
 	
-//	List<Seat> seats;
-
+	//method that returns ticket based on ID
 	@Override
-	public Ticket showTicketById(int ticketId) {
-		// TODO Auto-generated method stub
+	public Ticket showTicket(int ticketId)  {
+		
 		return ticketRepo.getOne(ticketId);
-	}
+     }
 	
+	//method that adds a ticket
 	@Override
-	public Ticket addTicketById(Ticket ticket) {
-		// TODO Auto-generated method stub
-		return ticketRepo.save(ticket);
-	}
-	
-//	@Override
-//	public Seat addBookingById(int seatId) {
-//		return ticketRepo.save(seatId);
-//		
-//	}
+	public Ticket addTicket(Ticket ticket) throws SlotNotAvailableException {
+		
+          return ticketRepo.save(ticket);
+        }
 
+	//method to delete a particular ticket by ID 
 	@Override
-	public boolean cancelBookingById(int ticketId) throws TicketCancellationException {
+	public boolean cancelBooking(int ticketId) throws TicketCancellationException {
 
-		//boolean flag = false;
 		if (ticketRepo.existsById(ticketId)) 
 		{
 			ticketRepo.deleteById(ticketId);
@@ -49,7 +40,13 @@ public class TicketServiceImpl implements TicketService {
 			throw new TicketCancellationException("Cancellation Failed : Id not found");
 		}
 		return true;
-
 	}
+
+	//method to get all the bookings
+    @Override
+     public List<Ticket> getAllBookings(Ticket ticket) {
+	
+	    return ticketRepo.findAll();
+     }
 
 }
