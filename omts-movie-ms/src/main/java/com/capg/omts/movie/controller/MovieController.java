@@ -3,6 +3,7 @@ package com.capg.omts.movie.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.capg.omts.movie.model.Movie;
 import com.capg.omts.movie.service.MovieServiceImpl;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/movie")
 public class MovieController {
 
@@ -24,6 +26,7 @@ public class MovieController {
 	MovieServiceImpl service;
 	@PostMapping("/add")
 	public Movie addMovie(@RequestBody Movie movie)  {
+//		System.out.println("movie");
 		int movieId = movie.getMovieId();
 		if (service.validateMovieId(movieId))
 		return service.addMovie(movie);
