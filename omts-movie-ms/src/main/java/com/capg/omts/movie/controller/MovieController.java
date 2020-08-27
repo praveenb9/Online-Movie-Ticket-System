@@ -18,7 +18,7 @@ import com.capg.omts.movie.model.Movie;
 import com.capg.omts.movie.service.MovieServiceImpl;
 
 @RestController
-@CrossOrigin(origins = {"localhost:4200"})
+@CrossOrigin
 @RequestMapping("/movie")
 public class MovieController {
 
@@ -26,6 +26,7 @@ public class MovieController {
 	MovieServiceImpl service;
 	@PostMapping("/add")
 	public Movie addMovie(@RequestBody Movie movie)  {
+//		System.out.println("movie");
 		int movieId = movie.getMovieId();
 		if (service.validateMovieId(movieId))
 		return service.addMovie(movie);
