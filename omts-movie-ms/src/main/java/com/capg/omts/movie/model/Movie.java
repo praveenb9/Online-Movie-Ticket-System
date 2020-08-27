@@ -9,9 +9,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
+/**
+	* The Model Class describes about the Attributes of the Module
+	*
+	* @author   :Upendar_Dasari
+	* @version  :1.0
+	* @since    :11/08/2020
+**/
+
 @Entity
-//@DiscriminatorValue("movie")
 public class Movie {
+	/**This class describe about all the Attributes that are used in Movie Module
+	 * All the setters and getters are created for Attributes
+	 * Also created constructor using Fields
+	 * And also created Generate to string...
+	 */
 	@Id
 	private int movieId;
 	private String movieName;

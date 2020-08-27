@@ -10,8 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 import com.capg.omts.movie.Exception.MovieException;
 import com.capg.omts.movie.model.Movie;
 import com.capg.omts.movie.repository.MovieRepository;
-@Service
-//@Transactional 
+
+/**
+	* The LoginController class Do the Authentication of A User
+	*
+	* @author   :Upendar_Dasari
+	* @version  :1.0
+	* @since    :YYYY-MM-DD 
+**/
+
+@Service 
 public class MovieServiceImpl implements MovieService {
 	@Autowired
 MovieRepository MovieRepo;
@@ -31,14 +39,7 @@ MovieRepository MovieRepo;
 		Integer movieId = movie.getMovieId();
 		if( MovieRepo.existsById(movieId))
 		{ 
-//     		Movie updateMovie=MovieRepo.getOne(movieId);		
-		
-//			updateMovie.setMovieName(movie.getMovieName());
-//			updateMovie.setMovieDirector(movie.getMovieDirector());
-//			updateMovie.setMovieGenre(movie.getMovieGenre());
-//			updateMovie.setLanguages(movie.getLanguages());
-//			updateMovie.setMovieLength(movie.getMovieLength());
-//			updateMovie.setMovieReleaseDate(movie.getMovieReleaseDate());
+
 			return MovieRepo.save(movie) ;
 		}
 		throw new RuntimeException ("MovieNotFound");

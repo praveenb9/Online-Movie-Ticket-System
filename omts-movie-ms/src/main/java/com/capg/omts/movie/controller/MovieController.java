@@ -16,6 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capg.omts.movie.Exception.MovieException;
 import com.capg.omts.movie.model.Movie;
 import com.capg.omts.movie.service.MovieServiceImpl;
+/**
+	* The MovieController is responsible for all Mapping to FrontEnd
+	*
+	* @author   :Upendar_Dasari
+	* @version  :1.0
+	* @since    :YYYY-MM-DD 
+**/
 
 @RestController
 @CrossOrigin
