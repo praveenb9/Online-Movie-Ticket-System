@@ -1,5 +1,7 @@
 package com.capg.omts.user.service;
 
+import java.util.List;
+
 import com.capg.omts.user.model.Movie;
 import com.capg.omts.user.model.Screen;
 import com.capg.omts.user.model.Show;
@@ -15,4 +17,5 @@ public interface IAdminService {
 	public boolean deleteScreen(int screenId);
 	public Show addShow(Show show);
 	public boolean deleteShow(int showId);
+	public List<Movie> getAllMovies();
 }

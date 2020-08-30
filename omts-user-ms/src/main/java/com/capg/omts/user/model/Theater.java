@@ -9,9 +9,9 @@ import javax.persistence.OneToMany;
 
 public class Theater {
 
-	private int theaterId;
-	private String theaterName;
-	private String city;
+	private int theatreId;
+	private String theatreName;
+	private String theatreCity;
 	@ElementCollection
 	private List<Integer> movies;
 	@OneToMany
@@ -24,12 +24,12 @@ public class Theater {
 	}
 
 	
-	public Theater(int theaterId, String theaterName, String city, List<Integer> movies, List<Screen> listOfScreens,
+	public Theater(int theatreId, String theatreName, String theatreCity, List<Integer> movies, List<Screen> listOfScreens,
 			String managerName, String managerContact) {
 		super();
-		this.theaterId = theaterId;
-		this.theaterName = theaterName;
-		this.city = city;
+		this.theatreId = theatreId;
+		this.theatreName = theatreName;
+		this.theatreCity = theatreCity;
 		this.movies = movies;
 		this.listOfScreens = listOfScreens;
 		this.managerName = managerName;
@@ -38,30 +38,30 @@ public class Theater {
 
 	
 
-	public int getTheaterId() {
-		return theaterId;
+	public int gettheatreId() {
+		return theatreId;
 	}
 
 
-	public void setTheaterId(int theaterId) {
-		this.theaterId = theaterId;
+	public void settheatreId(int theatreId) {
+		this.theatreId = theatreId;
 	}
 
 
-	public String getTheaterName() {
-		return theaterName;
+	public String gettheatreName() {
+		return theatreName;
 	}
 
-	public void setTheaterName(String theaterName) {
-		this.theaterName = theaterName;
+	public void settheatreName(String theatreName) {
+		this.theatreName = theatreName;
 	}
 
-	public String getCity() {
-		return city;
+	public String gettheatreCity() {
+		return theatreCity;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void settheatreCity(String theatreCity) {
+		this.theatreCity = theatreCity;
 	}
 
 	public List<Integer> getMovies() {
@@ -99,7 +99,7 @@ public class Theater {
 
 	@Override
 	public String toString() {
-		return "Theater [theaterId=" + theaterId + ", theaterName=" + theaterName + ", city=" + city + ", movies="
+		return "Theater [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreCity=" + theatreCity + ", movies="
 				+ movies + ", listOfScreens=" + listOfScreens + ", managerName=" + managerName + ", managerContact="
 				+ managerContact + "]";
 	}

@@ -1,7 +1,7 @@
 package com.capg.omts.user.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capg.omts.user.model.Movie;
 import com.capg.omts.user.model.Theater;
 import com.capg.omts.user.model.Ticket;
 import com.capg.omts.user.service.ICustomerService;
@@ -30,9 +31,9 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/bookTicket")
-	public boolean bookMovieTicket(@RequestBody Theater theater)
+	public boolean bookMovieTicket(@RequestBody Ticket ticket)
 	{
-		return customerService.bookMovieTicket(theater);
+		return customerService.bookMovieTicket(ticket);
 	}
 	
 	@PostMapping("/cancelTicket")
@@ -44,7 +45,12 @@ public class CustomerController {
 	@GetMapping("/viewTheaters")
 	public List<Theater> getAllTheaters()
 	{
-	return new ArrayList<>();
-		//return customerService.chooseCity(city);
+		return customerService.getAllTheaters();
+	}
+	
+	@GetMapping("/viewMovies")
+	public List<Movie> getAllMovies()
+	{
+		return customerService.getAllMovies();
 	}
 }

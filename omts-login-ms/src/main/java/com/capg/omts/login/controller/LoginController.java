@@ -23,7 +23,7 @@ import com.capg.omts.login.service.ILoginService;
  	*
  	* @author   :Praveen Bandi
  	* @version  :1.0
- 	* @since    :YYYY-MM-DD 
+ 	* @since    :2020-08-24 
 **/
 
 @RestController
@@ -49,6 +49,11 @@ public class LoginController {
 
 	}
 	
+	/**
+	   * This method is used to get The User with The given Credentials . 
+	   * 
+	   * @return UserCredentials : This returns credentials of the user.
+	**/   
 	@PostMapping("/public/getUser")
 	public UserCredentials getCredentials(@RequestBody User credentials)
 	{

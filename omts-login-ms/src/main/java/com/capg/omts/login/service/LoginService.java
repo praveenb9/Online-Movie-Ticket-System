@@ -13,6 +13,14 @@ import com.capg.omts.login.model.User;
 import com.capg.omts.login.model.UserCredentials;
 import com.capg.omts.login.util.TokenUtil;
 
+/**
+	* The LoginService class does the business logics related to Login
+	*
+	* @author   :Praveen Bandi
+	* @version  :1.0
+	* @since    :2020-08-24 
+**/
+
 @Service
 public class LoginService implements ILoginService {
 
@@ -22,7 +30,11 @@ public class LoginService implements ILoginService {
 	@Autowired
 	private TokenUtil tokenUtil;
 
-	
+	/**
+	   * This method is used to Verify Whether The User with The given Credentials is Exists or not. 
+	   * 
+	   * @return UserCredentials : This returns the credentials of the user.
+	**/ 
 
 	public UserCredentials authenticate(UserCredentials credentials) {
 		System.out.println(credentials);
@@ -31,6 +43,11 @@ public class LoginService implements ILoginService {
 
 	}
 
+	/**
+	   * This method is used to generate the token for the  given Credentials. 
+	   * 
+	   * @return AuthenicationResponse : This returns the Token.
+	**/ 
 	public AuthenticationResponse getToken(UserCredentials credentials) {
 		String generatedToken = tokenUtil.generateToken(credentials);
 		AuthenticationResponse authentication = new AuthenticationResponse();
