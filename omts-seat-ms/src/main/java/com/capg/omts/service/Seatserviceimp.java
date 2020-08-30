@@ -1,6 +1,11 @@
+/**
+ 	* Project Name : OnlineMovieTicket 
+ 	*
+ 	* 
+**/
 package com.capg.omts.service;
-
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -16,14 +21,21 @@ import com.capg.omts.exceptions.SeatnotFound;
 import com.capg.omts.exceptions.Seatnumberexception;
 import com.capg.omts.model.*;
 import com.capg.omts.repository.Seatrepository;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.capg.omts.model.SeatReader;
- @Service
+/**
+* Seatserviceimp implements interface Seatservice
+*
+* @author  : Kalluri Sai Santosh
+* @version : 1.0
+* @since   : DD-MM-YYYY 
+*/
+@Service
 public class Seatserviceimp implements Seatservice{
 	@Autowired
 	Seatrepository seatRepo;
 	seatStatus seatStatus ;
-	
+
+/***********************AVAILABLE SEAT*************************************/	
 	@Override
 	public List<Seat> showAvailableSeats() {
 		// TODO Auto-generated method stub
@@ -31,6 +43,8 @@ public class Seatserviceimp implements Seatservice{
 			return seatRepo.showAvailableSeats(seatStatus.AVAILABLE);
 		
 	}
+
+/************************BOOK SEAT ****************************************/
 	@Override
 	public List<Seat> bookSeats(Seatlist seatlist) {
 		// TODO Auto-generated method stub
@@ -62,9 +76,8 @@ public class Seatserviceimp implements Seatservice{
 
 			 
 
-		
-	
-	
+/************************BLOCK SEAT ****************************************/
+
 	@Override
 	public List<Seat> blockSeats(Seatlist seatlist) {
 		// TODO Auto-generated method stub
@@ -99,6 +112,8 @@ public class Seatserviceimp implements Seatservice{
 
 			
 
+
+/************************CANCEL SEAT ****************************************/
 	
 	@Override
 	public List<Seat> cancelSeats(Seatlist seatlist) {
@@ -129,7 +144,9 @@ public class Seatserviceimp implements Seatservice{
 		}
 
 			
-	@HystrixCommand(fallbackMethod = "addSeat_Fallback")
+
+/************************ADD SEAT ****************************************/
+	
 	@Override
 	@Transactional
 	public Seat addSeat(SeatReader seatReader)  {
@@ -160,6 +177,9 @@ public class Seatserviceimp implements Seatservice{
 			return seatRepo.save(seat);
 	
 	}
+
+/************************VALIDATION FOR SEAT NUMBER *******************/
+
 	public boolean validateSeatId(int SeatId) throws Seatnumberexception {
 		String seat = Integer.toString(SeatId);
 		if (!(seat.length() == 6)) {

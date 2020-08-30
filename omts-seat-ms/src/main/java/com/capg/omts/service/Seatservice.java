@@ -1,4 +1,16 @@
+/**
+ 	* Project Name : OnlineMovieTicket 
+ 	*
+ 	* 
+**/
 package com.capg.omts.service;
+/**
+* Interface Seatservice  for  add,book,block,cancel,available seats.
+*
+* @author  : Kalluri Sai Santosh
+* @version : 1.0
+* @since   : DD-MM-YYYY 
+*/
 
 import java.util.List;
 import com.capg.omts.model.SeatReader;

@@ -12,6 +12,6 @@ import com.capg.omts.model.*;
 
 public interface Seatrepository extends JpaRepository<Seat, Integer> {
 
-	@Query("from Seat where seatStatus=:seatStatus")
+	@Query("from Seat where seatStatus=seatStatus")
 	public List<Seat> showAvailableSeats(seatStatus seatStatus);
 }
