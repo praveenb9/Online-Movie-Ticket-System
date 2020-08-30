@@ -22,7 +22,7 @@ Seatservice seatService ;
 		
 		@Test
         public void Addseattest() {
-        	SeatReader  seat =new SeatReader(333339,"AVAILABLE",12345);
+        	SeatReader  seat =new SeatReader(333249,"AVAILABLE",12345);
         	Seat Seat=seatService.addSeat(seat);
         	assertNotNull(Seat);
         }
