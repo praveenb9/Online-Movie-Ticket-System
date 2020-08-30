@@ -32,15 +32,6 @@ Seatservice seatService ;
           assertNotNull(seatlist);
 	
 		}
-		@Test
-		public void bookseat() {
-			Seatlist seatlist=new Seatlist();
-			List<Integer>list=seatlist.getSeatlist();
-			list.add(333333);
-			seatlist.setSeatlist(list);
-		    List<Seat> book=seatService.bookSeats(seatlist);
-		    assertNotNull(book);
-		}
 }
 
 
