@@ -18,4 +18,11 @@ public interface IAdminService {
 	public Show addShow(Show show);
 	public boolean deleteShow(int showId);
 	public List<Movie> getAllMovies();
+	public List<Theater> getAllTheaters();
+	public Theater updateTheatre(Theater theater);
+	public List<Show> getAllShows();
+	public List<Screen> getAllScreens();
+	public Screen updateScreen(Screen screen);
+	public Show updateShow(Show show);
+	public Movie updateMovie(Movie movie);
 }

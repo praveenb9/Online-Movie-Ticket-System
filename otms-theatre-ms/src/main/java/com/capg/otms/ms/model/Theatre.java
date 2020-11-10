@@ -23,6 +23,7 @@ public class Theatre {
 	private List<Integer> movies;
 	@OneToMany
 	private List<Screen> listOfScreens=new ArrayList<Screen>();
+	
 	public void setListOfScreens(List<Screen> listOfScreens) {
 		this.listOfScreens = listOfScreens;
 	}

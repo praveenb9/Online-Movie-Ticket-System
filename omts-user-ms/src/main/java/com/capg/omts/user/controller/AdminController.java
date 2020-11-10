@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,6 +39,12 @@ public class AdminController {
 		return adminService.deleteTheater(theaterId);
 	}
 	
+	@PutMapping("/updateTheatre")
+	public Theater updateTheatre(@RequestBody Theater theater)
+	{
+		return adminService.updateTheatre(theater);
+	}
+	
 	@PostMapping("/addMovie")
 	public Movie addMovie(@RequestBody Movie movie)
 	{
@@ -48,6 +55,12 @@ public class AdminController {
 	public boolean deleteMovie(@PathVariable int movieId)
 	{
 		return adminService.deleteMovie(movieId);
+	}
+	
+	@PutMapping("/updateMovie")
+	public Movie updateMovie(@RequestBody Movie movie)
+	{
+		return adminService.updateMovie(movie);
 	}
 	
 	@PostMapping("/addShow")
@@ -62,6 +75,12 @@ public class AdminController {
 		return adminService.deleteShow(showId);
 	}
 	
+	@PutMapping("/updateShow")
+	public Show updateShow(@RequestBody Show show)
+	{
+		return adminService.updateShow(show);
+	}
+	
 	@PostMapping("/addScreen")
 	public Screen addScreen(@RequestBody Screen screen)
 	{
@@ -74,8 +93,33 @@ public class AdminController {
 		return adminService.deleteScreen(screenId);
 	}
 	
+	@PutMapping("/updateScreen")
+	public Screen updateScreen(@RequestBody Screen screen)
+	{
+		return adminService.updateScreen(screen);
+	}
+	
 	@GetMapping("/getAllMovies")
 	public List<Movie> getallMovies(){
 		return adminService.getAllMovies();
 	}	
+	
+	@GetMapping("/viewTheaters")
+	public List<Theater> getAllTheaters()
+	{
+		return adminService.getAllTheaters();
+	}
+	
+	@GetMapping("getAllShows")
+	public List<Show> getAllShows()
+	{
+		return adminService.getAllShows();
+	}
+	
+	@GetMapping("getAllScreens")
+	public List<Screen> getAllScreens()
+	{
+		return adminService.getAllScreens();
+	}
+	
 }

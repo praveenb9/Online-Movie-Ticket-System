@@ -12,9 +12,7 @@ public class Theater {
 	private int theatreId;
 	private String theatreName;
 	private String theatreCity;
-	@ElementCollection
 	private List<Integer> movies;
-	@OneToMany
 	private List<Screen> listOfScreens;
 	private String managerName;
 	private String managerContact;

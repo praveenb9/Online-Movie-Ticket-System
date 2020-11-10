@@ -10,9 +10,9 @@ public class Movie {
 	private String movieGenre;
 	private String movieDirector;
 	private int movieLength;
-
 	private List<String> languages;
 	private String movieReleaseDate;
+	
 
 	public Movie() {
 		

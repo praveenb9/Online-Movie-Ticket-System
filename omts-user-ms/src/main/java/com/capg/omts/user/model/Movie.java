@@ -1,11 +1,10 @@
 package com.capg.omts.user.model;
 
-//import java.time.LocalDate;
+
 import java.util.List;
 
-//import javax.persistence.ElementCollection;
 
-//import org.springframework.format.annotation.DateTimeFormat;
+
 
 public class Movie {
 
@@ -15,8 +14,9 @@ public class Movie {
 	private String movieDirector;
 	private int movieLength;
 	private List<String> languages;
-	//@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private String movieReleaseDate;
+	
+
 	
 	public Movie() {
 		// TODO Auto-generated constructor stub

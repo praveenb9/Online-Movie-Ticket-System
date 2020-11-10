@@ -18,7 +18,7 @@ import com.capg.omts.booking.Exception.TicketCancellationException;
 import com.capg.omts.booking.model.Ticket;
 import com.capg.omts.booking.service.TicketServiceImpl;
 
-@CrossOrigin("*")
+@CrossOrigin
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {

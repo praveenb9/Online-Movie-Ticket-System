@@ -40,7 +40,6 @@ public class AdminService implements IAdminService{
 	@Override
 	public Movie addMovie(Movie movie) {
 		
-		System.out.println(movie);
 		return restTemplate.postForObject("http://localhost:8199/movie/add", movie, Movie.class);
 	}
 
@@ -98,6 +97,51 @@ public class AdminService implements IAdminService{
 		Movie[]movieList=restTemplate.getForObject("http://localhost:8199/movie/all", Movie[].class);
 		return Arrays.asList(movieList);
 		
+	}
+
+	@Override
+	public List<Theater> getAllTheaters() {
+		Theater []list=restTemplate.getForObject("http://localhost:8686/theatre/all", Theater[].class);
+		return Arrays.asList(list);	
+	}
+
+	@Override
+	public Theater updateTheatre(Theater theater) {
+		// TODO Auto-generated method stub
+		 restTemplate.put("http://localhost:8686/theatre/update", theater);
+return theater;
+	}
+
+	@Override
+	public List<Show> getAllShows() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Screen> getAllScreens() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Screen updateScreen(Screen screen) {
+		restTemplate.put("http://localhost:8686/screen/update", screen);
+		return screen;
+	}
+
+	@Override
+	public Show updateShow(Show show) {
+		restTemplate.put("http://localhost:8686/show/update", show);
+		return show;
+	}
+
+	@Override
+	public Movie updateMovie(Movie movie) {
+		
+		restTemplate.put("http://localhost:8199/movie/update", movie);
+
+		return movie;
 	}
 
 }

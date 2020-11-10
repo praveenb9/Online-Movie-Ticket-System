@@ -3,88 +3,101 @@ package com.capg.omts.login.model;
 import java.util.List;
 
 
+
+
 public class Theater {
 
-	private int theaterId;
-	private String theaterName;
-	private String city;
+	private int theatreId;
+	private String theatreName;
+	private String theatreCity;
 	private List<Integer> movies;
 	private List<Screen> listOfScreens;
 	private String managerName;
 	private String managerContact;
 	
+
 	public Theater() {
 		
 	}
 
 	
-	public Theater(int theaterId, String theaterName, String city, List<Integer> movies, List<Screen> listOfScreens,
+	public Theater(int theatreId, String theatreName, String theatreCity, List<Integer> movies, List<Screen> listOfScreens,
 			String managerName, String managerContact) {
 		super();
-		this.theaterId = theaterId;
-		this.theaterName = theaterName;
-		this.city = city;
+		this.theatreId = theatreId;
+		this.theatreName = theatreName;
+		this.theatreCity = theatreCity;
 		this.movies = movies;
 		this.listOfScreens = listOfScreens;
 		this.managerName = managerName;
 		this.managerContact = managerContact;
 	}
 
-	
 
-	public int getTheaterId() {
-		return theaterId;
+	public int getTheatreId() {
+		return theatreId;
 	}
 
 
-	public void setTheaterId(int theaterId) {
-		this.theaterId = theaterId;
+	public void setTheatreId(int theatreId) {
+		this.theatreId = theatreId;
 	}
 
 
-	public String getTheaterName() {
-		return theaterName;
+	public String getTheatreName() {
+		return theatreName;
 	}
 
-	public void setTheaterName(String theaterName) {
-		this.theaterName = theaterName;
+
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
 	}
 
-	public String getCity() {
-		return city;
+
+	public String getTheatreCity() {
+		return theatreCity;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+
+	public void setTheatreCity(String theatreCity) {
+		this.theatreCity = theatreCity;
 	}
+
 
 	public List<Integer> getMovies() {
 		return movies;
 	}
 
+
 	public void setMovies(List<Integer> movies) {
 		this.movies = movies;
 	}
+
 
 	public List<Screen> getListOfScreens() {
 		return listOfScreens;
 	}
 
+
 	public void setListOfScreens(List<Screen> listOfScreens) {
 		this.listOfScreens = listOfScreens;
 	}
+
 
 	public String getManagerName() {
 		return managerName;
 	}
 
+
 	public void setManagerName(String managerName) {
 		this.managerName = managerName;
 	}
 
+
 	public String getManagerContact() {
 		return managerContact;
 	}
+
 
 	public void setManagerContact(String managerContact) {
 		this.managerContact = managerContact;
@@ -93,9 +106,11 @@ public class Theater {
 
 	@Override
 	public String toString() {
-		return "Theater [theaterId=" + theaterId + ", theaterName=" + theaterName + ", city=" + city + ", movies="
-				+ movies + ", listOfScreens=" + listOfScreens + ", managerName=" + managerName + ", managerContact="
-				+ managerContact + "]";
+		return "Theater [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreCity=" + theatreCity
+				+ ", movies=" + movies + ", listOfScreens=" + listOfScreens + ", managerName=" + managerName
+				+ ", managerContact=" + managerContact + "]";
 	}
+
 	
+
 }

@@ -1,6 +1,6 @@
 /**
+ 	* 
  	* Project Name : Online Movie Ticket System
- 	*
  	* 
 **/
 
@@ -8,13 +8,11 @@ package com.capg.omts.login.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.capg.omts.login.model.AuthenticationResponse;
-import com.capg.omts.login.model.User;
 import com.capg.omts.login.model.UserCredentials;
 import com.capg.omts.login.service.ILoginService;
 
@@ -31,7 +29,7 @@ import com.capg.omts.login.service.ILoginService;
 @CrossOrigin
 public class LoginController {
 
-	// Tells the application context to inject an instance of ILoginService here
+	// Tells the application context to inject an instance of LoginService here
 	@Autowired
 	private ILoginService loginService;
 
@@ -55,8 +53,8 @@ public class LoginController {
 	   * @return UserCredentials : This returns credentials of the user.
 	**/   
 	@PostMapping("/public/getUser")
-	public UserCredentials getCredentials(@RequestBody User credentials)
+	public UserCredentials getCredentials(@RequestBody UserCredentials credentials)
 	{
-		return loginService.getUser(credentials);
+		return loginService.authenticate(credentials);
 	}
 }

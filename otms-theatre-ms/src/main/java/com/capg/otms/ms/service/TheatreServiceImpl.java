@@ -90,4 +90,14 @@ public class TheatreServiceImpl implements ITheatreService {
 	public Theatre getTheatreById(Integer theatreId) {
 		return theatreRepo.getByTheatreId(theatreId);
 	}
+
+
+	@Override
+	public List<Theatre> findTheatresByCity(String city) {
+		// TODO Auto-generated method stub
+		return theatreRepo.getTheatreBytheatreCity(city);
+	}
+
+
+
 }

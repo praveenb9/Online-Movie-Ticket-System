@@ -15,7 +15,7 @@ import com.capg.omts.booking.model.Payment;
 import com.capg.omts.booking.model.Seat;
 import com.capg.omts.booking.service.*;
 
-@CrossOrigin("https://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/booking")
 public class BookingMovieController {

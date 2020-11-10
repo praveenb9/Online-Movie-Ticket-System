@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capg.omts.booking.model.Seat;
 import com.capg.omts.booking.service.SeatServiceImpl;
 
-@CrossOrigin("https://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/booking")
 public class SeatController {

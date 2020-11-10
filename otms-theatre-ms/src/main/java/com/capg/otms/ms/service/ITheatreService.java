@@ -13,4 +13,7 @@ public interface ITheatreService {
 	Theatre getTheatreById(Integer theatreId);
 	Theatre getTheatreByName(String theatreName);
 	boolean validateTheatreId(Integer theatreId) ;
+	List<Theatre> findTheatresByCity(String city); 
+
+	
 }

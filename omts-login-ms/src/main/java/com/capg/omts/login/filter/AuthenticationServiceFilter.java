@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.capg.omts.login.exception.InvalidUserException;
+
 import com.capg.omts.login.model.UserCredentials;
 import com.capg.omts.login.service.ILoginService;
 import com.capg.omts.login.util.TokenUtil;
